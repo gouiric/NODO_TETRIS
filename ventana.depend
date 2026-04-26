@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1777169330 source:c:\users\saave\onedrive\documentos\devel\ventana\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"splash.h"
+	"dibujo.h"
+
+1777169499 c:\users\saave\onedrive\documentos\devel\ventana\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1777168678 source:c:\users\saave\onedrive\documentos\devel\ventana\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	<stdint.h>
+
+1777168403 c:\users\saave\onedrive\documentos\devel\ventana\dibujo.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777169674 source:c:\users\saave\onedrive\documentos\devel\ventana\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777168577 c:\users\saave\onedrive\documentos\devel\ventana\splash.h
+	"dibujo.h"
+
+1777169422 source:c:\users\saave\onedrive\documentos\devel\ventana\splash.c
+	"splash.h"
+	"dibujo.h"
+

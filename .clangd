@@ -1,0 +1,5 @@
+CompileFlags:
+  Add:
+    - -IGBT_v2026.1C.01/include
+    - --target=x86_64-w64-mingw32
+  Compiler: C:\Users\saave\Downloads\codeblocks-25.03mingw-nosetup\MinGW\bin\gcc.exe
