@@ -1,5 +1,6 @@
 #include "graficos.h"
 #include <stdint.h>
+#include <string.h>
 
 uint8_t M_letraT[16][16] =
 {
@@ -125,3 +126,20 @@ car16 C_letraS = {
     .mapa = M_letraS,
     .colores = {15, 0, 6, 12}
 };
+
+void rotar_paletas_c16(car16** listaSpr, int cant){
+    uint8_t colores[CANTIDAD_COLORES_SPRITE];
+    int tamMem = sizeof(uint8_t) * CANTIDAD_COLORES_SPRITE;
+    //
+    // Tomar una lista de sprites y intercambiar sus paletas de colores
+    //
+    if(cant > 0){
+        memcpy(&colores, listaSpr[0]->colores, tamMem);
+        if(cant>1){
+            for(int i = 0; i < cant-1; i++){
+                memcpy(listaSpr[i]->colores, listaSpr[i+1]->colores, tamMem);
+            }
+        }
+        memcpy(listaSpr[cant-1]->colores, &colores, tamMem);
+    }
+}

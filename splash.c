@@ -27,4 +27,12 @@ void loop_splash(){
     }else if(tecla != GBTK_DESCONOCIDA){
         printf("Pasando a escena menu");
     }
+
+    //Animacion titulo
+    contexto->escenaActual->contador++;
+    if(contexto->escenaActual->contador == 20){
+        contexto->escenaActual->contador = 0;
+        car16* letras[5] =  {&C_letraT, &C_letraE, &C_letraR, &C_letraI, &C_letraS}; //Solucion a lo bruto
+        rotar_paletas_c16(letras, 5);
+    }
 }
