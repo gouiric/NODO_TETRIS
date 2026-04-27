@@ -1,3 +1,5 @@
 *.o
 Makefile
 ventana.exe
+.clangd
+/gbt.dll
