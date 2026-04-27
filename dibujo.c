@@ -10,6 +10,10 @@ Pantalla* pantalla = NULL;
 
 Pantalla* inicializar_helper_dibujo(int ancho, int alto, int escala_v){
     pantalla = malloc(sizeof(Pantalla));
+    if(pantalla != NULL){
+        fprintf(stderr, "Error al solicitar memoria para pantalla");
+        return NULL;
+    }
     pantalla->ancho = ancho;
     pantalla->alto = alto;
     pantalla-> escala_v = escala_v;
@@ -50,4 +54,8 @@ void dibujar_spr_porc(car16 *spr, int sprSzX, int sprSzY, float porcX, float por
 
         }
     }
+}
+
+void limpiar_helper_pantalla(){
+    free(pantalla);
 }

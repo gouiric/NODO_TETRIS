@@ -20,4 +20,6 @@ int porc_a_pixel(float porc, int tam);
 
 void dibujar_spr_porc(car16* spr, int sprSzX, int sprSzY, float porcX, float porcY, int escala);
 
+void limpiar_helper_pantalla();
+
 #endif // DIBUJO_H_INCLUDED

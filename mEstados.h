@@ -4,7 +4,8 @@
 #include "dibujo.h"
 
 typedef enum{
-    PANTALLA_SPLASH
+    PANTALLA_SPLASH,
+    PANTALLA_MENU
 }eEstadoJuego;
 
 typedef struct{
@@ -25,5 +26,7 @@ Context* inicializar_contexto();
 extern Context* contexto;
 
 void correr();
+
+void limpiar_contexto();
 
 #endif // MESTADOS_H_INCLUDED

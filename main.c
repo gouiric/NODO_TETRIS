@@ -78,9 +78,16 @@ int main(int argc, char* argv[])
     //
     // entorno juego
     //
-    inicializar_contexto();
-    inicializar_helper_dibujo(ANCHO_VENTANA, ALTO_VENTANA, ESCALA_V);
+    if(inicializar_contexto() != NULL){
+        printf("Error al crear contexto");
+        return -1;
+    }
+    if(inicializar_helper_dibujo(ANCHO_VENTANA, ALTO_VENTANA, ESCALA_V) != NULL){
+        printf("Error al crear memoria para funciones de pantalla");
+        return -1;
+    }
 
+    //bucle principal
     while(contexto->corriendo == true){
 
         correr();
@@ -88,6 +95,10 @@ int main(int argc, char* argv[])
         gbt_volcar_backbuffer();
         gbt_esperar(16);
     }
+
+    //Funciones de cierre
+    limpiar_contexto();
+    limpiar_helper_pantalla();
     gbt_destruir_ventana();
     gbt_cerrar();
 
