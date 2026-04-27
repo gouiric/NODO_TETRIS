@@ -18,7 +18,11 @@ void limpiar(uint8_t col);
 
 int porc_a_pixel(float porc, int tam);
 
+//Toma un objeto del tipo car16 y lo dibuja en una ubicacion en porcentaje de la pantalla
 void dibujar_spr_porc(car16* spr, int sprSzX, int sprSzY, float porcX, float porcY, int escala);
+//toma un bitmap monocromatico y lo dibuja en una ubicacion de porcentaje de la pantalla
+void dibujar_spr_mono_porc(uint8_t *spr, int sprSzX, int sprSzY, float porcX, float porcY, int escala, int col);
+
 
 void limpiar_helper_pantalla();
 

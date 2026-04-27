@@ -10,8 +10,8 @@ Pantalla* pantalla = NULL;
 
 Pantalla* inicializar_helper_dibujo(int ancho, int alto, int escala_v){
     pantalla = malloc(sizeof(Pantalla));
-    if(pantalla != NULL){
-        fprintf(stderr, "Error al solicitar memoria para pantalla");
+    if(pantalla == NULL){
+        fprintf(stderr, "Error al solicitar memoria para pantalla\n");
         return NULL;
     }
     pantalla->ancho = ancho;
@@ -52,6 +52,20 @@ void dibujar_spr_porc(car16 *spr, int sprSzX, int sprSzY, float porcX, float por
                 }
             }
 
+        }
+    }
+}
+
+void dibujar_spr_mono_porc(uint8_t *spr, int sprSzX, int sprSzY, float porcX, float porcY, int escala, int col){
+    int offX = porc_a_pixel(porcX, pantalla->ancho);
+    int offY = porc_a_pixel(porcY, pantalla->alto);
+    for(int x = offX; x < offX + (sprSzX * escala); x++){
+        for(int y = offY; y < offY + (sprSzY * escala); y++){
+            int srcX = (x-offX) / escala;
+            int srcY = (y-offY) / escala;
+            if(spr[(srcY * sprSzY) + srcX] == 1){
+                gbt_dibujar_pixel(x, y, col);
+            }
         }
     }
 }

@@ -78,12 +78,12 @@ int main(int argc, char* argv[])
     //
     // entorno juego
     //
-    if(inicializar_contexto() != NULL){
-        printf("Error al crear contexto");
+    if(inicializar_contexto() == NULL){
+        printf("Error al crear contexto\n");
         return -1;
     }
-    if(inicializar_helper_dibujo(ANCHO_VENTANA, ALTO_VENTANA, ESCALA_V) != NULL){
-        printf("Error al crear memoria para funciones de pantalla");
+    if(inicializar_helper_dibujo(ANCHO_VENTANA, ALTO_VENTANA, ESCALA_V) == NULL){
+        printf("Error al crear memoria para funciones de pantalla\n");
         return -1;
     }
 

@@ -12,8 +12,8 @@ void dibujar_splash(){
     int offV = 0;
     if(pantalla->escala_v == 2)
         offV = 5;
-    dibujar_spr_porc(&C_letraT, 16, 16, 10, 10+offV, 3 * pantalla->escala_v);
-    dibujar_spr_porc(&C_letraE, 16, 16, 26, 10+offV, 3 * pantalla->escala_v);
+    dibujar_spr_porc(&C_letraT, 16, 16, 10, 10+offV, 3 * pantalla->escala_v);   //TOTALMENTE HARDCODEADO
+    dibujar_spr_porc(&C_letraE, 16, 16, 26, 10+offV, 3 * pantalla->escala_v);   //pero se puede arreglar
     dibujar_spr_porc(&C_letraT, 16, 16, 42, 10+offV, 3* pantalla->escala_v);
     dibujar_spr_porc(&C_letraR, 16, 16, 58, 10+offV, 3 * pantalla->escala_v);
     dibujar_spr_porc(&C_letraI, 16, 16, 69, 10+offV, 3 * pantalla->escala_v);
@@ -25,7 +25,8 @@ void loop_splash(){
     if(tecla == GBTK_ESCAPE){
         contexto->corriendo = false;
     }else if(tecla != GBTK_DESCONOCIDA){
-        printf("Pasando a escena menu");
+        printf("Pasando a escena nombre");    //Temporal
+        cambiar_contexto(PANTALLA_NOMBRE);
     }
 
     //Animacion titulo
