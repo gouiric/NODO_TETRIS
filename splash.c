@@ -25,8 +25,8 @@ void loop_splash(){
     if(tecla == GBTK_ESCAPE){
         contexto->corriendo = false;
     }else if(tecla != GBTK_DESCONOCIDA){
-        printf("Pasando a escena nombre");    //Temporal
-        cambiar_contexto(PANTALLA_NOMBRE);
+        printf("Pasando a escena Tetris\n");    //Temporal
+        cambiar_contexto(PANTALLA_TETRIS);
     }
 
     //Animacion titulo

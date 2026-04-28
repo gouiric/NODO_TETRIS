@@ -8,7 +8,8 @@
 typedef enum{
     PANTALLA_SPLASH,
     PANTALLA_NOMBRE,
-    PANTALLA_MENU
+    PANTALLA_MENU,
+    PANTALLA_TETRIS
 }eEstadoJuego;
 
 //
@@ -27,6 +28,7 @@ typedef struct{
     bool corriendo;
     Escena escenaSplash;
     Escena escenaNombre;
+    Escena escenaTetris;
     Escena *escenaActual;
     char nombreActual[TAMANIO_NOMBRE]; //nose si esto deberia ir aca
     int tamanioNombre;
