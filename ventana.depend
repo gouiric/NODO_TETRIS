@@ -1,0 +1,432 @@
+# depslib dependency file v1.0
+1777169330 source:c:\users\saave\onedrive\documentos\devel\ventana\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"splash.h"
+	"dibujo.h"
+
+1777169499 c:\users\saave\onedrive\documentos\devel\ventana\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1777168678 source:c:\users\saave\onedrive\documentos\devel\ventana\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	<stdint.h>
+
+1777168403 c:\users\saave\onedrive\documentos\devel\ventana\dibujo.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777169674 source:c:\users\saave\onedrive\documentos\devel\ventana\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777168577 c:\users\saave\onedrive\documentos\devel\ventana\splash.h
+	"dibujo.h"
+
+1777169422 source:c:\users\saave\onedrive\documentos\devel\ventana\splash.c
+	"splash.h"
+	"dibujo.h"
+
+1777345110 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1777347654 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\dibujo.h
+	<stdint.h>
+	"graficos.h"
+
+1777345110 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\graficos.h
+	<stdint.h>
+
+1777345109 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777346042 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1777345110 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\graficos.c
+	"graficos.h"
+	<stdint.h>
+	<string.h>
+
+1777345110 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+
+1777345109 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777345109 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777345109 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777345109 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777345109 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777347217 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\piezas.c
+	"piezas.h"
+	"tablero.h"
+	"dibujo.h"
+
+1777326140 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\piezas.h
+	<stdint.h>
+	<GBT/gbt.h>
+
+1777326140 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\tablero.h
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<GBT/gbt.h>
+	"piezas.h"
+
+1777345110 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\pnombre.c
+	"pNombre.h"
+	"dibujo.h"
+	"pNombre.h"
+	"graficos.h"
+	"GBT/gbt_entrada.h"
+	"mEstados.h"
+	<math.h>
+	<stdio.h>
+
+1777345110 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\pnombre.h
+
+1777347276 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\splash.c
+	"splash.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"graficos.h"
+
+1777345110 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\splash.h
+	"dibujo.h"
+	"mEstados.h"
+
+1777347909 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<stdio.h>
+	"dibujo.h"
+
+1777347854 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\tetris.c
+	"tetris.h"
+	<stdlib.h>
+	"GBT/gbt_entrada.h"
+	"tablero.h"
+	"mEstados.h"
+	<stdio.h>
+
+1777347530 c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\tetris.h
+	"tablero.h"
+	"piezas.h"
+
+1777347540 source:c:\users\saave\onedrive\documentos\devel\union\nodo_tetris\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"GBT/gbt_entrada.h"
+	"splash.h"
+	<stdio.h>
+	<string.h>
+	"pNombre.h"
+	"tetris.h"
+
+1777350094 source:c:\users\lucas\nodo_tetris\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1777350094 c:\users\lucas\nodo_tetris\dibujo.h
+	<stdint.h>
+	"graficos.h"
+
+1777350094 c:\users\lucas\nodo_tetris\graficos.h
+	<stdint.h>
+
+1777350094 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777350094 c:\users\lucas\nodo_tetris\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1777350094 source:c:\users\lucas\nodo_tetris\graficos.c
+	"graficos.h"
+	<stdint.h>
+	<string.h>
+
+1777362687 source:c:\users\lucas\nodo_tetris\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+
+1777350094 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777350094 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777350094 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777350094 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777350094 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777350094 source:c:\users\lucas\nodo_tetris\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"GBT/gbt_entrada.h"
+	"splash.h"
+	<stdio.h>
+	<string.h>
+	"pNombre.h"
+	"tetris.h"
+
+1777350094 c:\users\lucas\nodo_tetris\splash.h
+	"dibujo.h"
+	"mEstados.h"
+
+1777350094 c:\users\lucas\nodo_tetris\pnombre.h
+
+1777436049 c:\users\lucas\nodo_tetris\tetris.h
+	"tablero.h"
+	"piezas.h"
+	<time.h>
+
+1777437606 c:\users\lucas\nodo_tetris\tablero.h
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<GBT/gbt.h>
+	"piezas.h"
+
+1777360047 c:\users\lucas\nodo_tetris\piezas.h
+	<stdint.h>
+	<GBT/gbt.h>
+
+1777360299 source:c:\users\lucas\nodo_tetris\piezas.c
+	"piezas.h"
+	"tablero.h"
+	"dibujo.h"
+
+1777350094 source:c:\users\lucas\nodo_tetris\pnombre.c
+	"pNombre.h"
+	"dibujo.h"
+	"pNombre.h"
+	"graficos.h"
+	"GBT/gbt_entrada.h"
+	"mEstados.h"
+	<math.h>
+	<stdio.h>
+
+1777350094 source:c:\users\lucas\nodo_tetris\splash.c
+	"splash.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"graficos.h"
+
+1777437606 source:c:\users\lucas\nodo_tetris\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<stdio.h>
+	"dibujo.h"
+
+1777437629 source:c:\users\lucas\nodo_tetris\tetris.c
+	"tetris.h"
+	<stdlib.h>
+	"GBT/gbt_entrada.h"
+	"tablero.h"
+	"mEstados.h"
+	<stdio.h>
+
+1777442366 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\dibujo.h
+	<stdint.h>
+	"graficos.h"
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\graficos.h
+	<stdint.h>
+
+1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\graficos.c
+	"graficos.h"
+	<stdint.h>
+	<string.h>
+
+1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"GBT/gbt_entrada.h"
+	"splash.h"
+	<stdio.h>
+	<string.h>
+	"pNombre.h"
+	"tetris.h"
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\splash.h
+	"dibujo.h"
+	"mEstados.h"
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\pnombre.h
+
+1777441300 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tetris.h
+	"tablero.h"
+	"piezas.h"
+	<time.h>
+
+1777443014 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tablero.h
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<GBT/gbt.h>
+	"piezas.h"
+	"dibujo.h"
+
+1777441300 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\piezas.h
+	<stdint.h>
+	<GBT/gbt.h>
+
+1777443099 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\piezas.c
+	"piezas.h"
+	"tablero.h"
+
+1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\pnombre.c
+	"pNombre.h"
+	"dibujo.h"
+	"pNombre.h"
+	"graficos.h"
+	"GBT/gbt_entrada.h"
+	"mEstados.h"
+	<math.h>
+	<stdio.h>
+
+1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\splash.c
+	"splash.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"graficos.h"
+
+1777441300 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tetris.c
+	"tetris.h"
+	<stdlib.h>
+	"GBT/gbt_entrada.h"
+	"tablero.h"
+	"mEstados.h"
+	<stdio.h>
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777439064 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\funciones.c
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777443213 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<stdio.h>
+

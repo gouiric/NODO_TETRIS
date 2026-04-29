@@ -56,8 +56,8 @@ const uint8_t FORMA_Z[4][4] = {
     {0, 0, 0, 0}
 };
 
-///Un viejo conocido ya...
-extern void dibujarRectangulo(uint16_t x, uint16_t y, uint16_t ancho, uint16_t alto, uint8_t color);
+
+
 
 ///Toma como argumento pieza (estructura), y un tipo de pieza (0,1,2,3,4,5,6)
 void cargar_pieza(Pieza *p, int tipo_pieza)
@@ -97,9 +97,36 @@ void dibujar_pieza(Pieza* p, uint16_t x_tablero, uint16_t y_tablero)
                 {
                     uint16_t pos_pantalla_x = x_tablero + ((p->x + x)*TAMANIO_BLOQUE);
                     uint16_t pos_pantalla_y = y_tablero + ((p->y + y)*TAMANIO_BLOQUE);
-                    dibujarRectangulo(pos_pantalla_x,pos_pantalla_y,TAMANIO_BLOQUE - 1, TAMANIO_BLOQUE - 1, p->color);
+                    dibujar_rect(pos_pantalla_x,pos_pantalla_y,TAMANIO_BLOQUE - 1, TAMANIO_BLOQUE - 1, p->color);
                 }
             }
+        }
+    }
+}
+
+
+void sentido_horario(uint8_t mat_destino[][ORDEN_PIEZA], uint8_t mat_origen[][ORDEN_PIEZA])
+{
+    int fila_invertida = ORDEN_PIEZA - 1;
+
+    for(int y = 0; y < ORDEN_PIEZA; y++)
+    {
+        for(int x = 0; x < ORDEN_PIEZA; x++)
+        {
+            mat_destino[x][fila_invertida - y] = mat_origen[y][x];
+        }
+    }
+}
+
+void sentido_antihorario(uint8_t mat_destino[][ORDEN_PIEZA], uint8_t mat_origen[][ORDEN_PIEZA])
+{
+    int columna_invertida = ORDEN_PIEZA - 1;
+
+    for(int y = 0; y < ORDEN_PIEZA; y++)
+    {
+        for(int x = 0; x < ORDEN_PIEZA; x++)
+        {
+            mat_destino[columna_invertida - x][y] = mat_origen[y][x];
         }
     }
 }

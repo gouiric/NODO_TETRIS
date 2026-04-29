@@ -6,10 +6,11 @@
 #include <string.h>
 #include <GBT/gbt.h>
 #include "piezas.h"
+#include "dibujo.h"
 
 #define TABLERO_FILAS 20
 #define TABLERO_COLS 12
-#define TAMANIO_BLOQUE 6
+#define TAMANIO_BLOQUE 9
 
 typedef struct
 {
@@ -19,10 +20,10 @@ typedef struct
 
 void inicialiar_tablero(Tablero* t);
 void dibujar_tablero(Tablero* t, uint16_t offsetX, uint16_t offsetY);
-void limpiar_filas(Tablero* t);
+int limpiar_filas(Tablero* t);
 bool colision(Tablero* t, Pieza* p, int ox, int oy);
 void anclar_pieza(Tablero* t, Pieza* p);
-void destruir_tablero(Tablero* t);
+void destruir_tablero(Tablero* t, int filas);
 
 
 #endif // TABLERO_H_INCLUDED

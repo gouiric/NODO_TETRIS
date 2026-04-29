@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-///Utilizamos la funcion dibujarRectangulo, se ubica en pantalla_principal.h y .c
-extern void dibujarRectangulo(uint16_t x, uint16_t y, uint16_t ancho, uint16_t alto, uint8_t color);
 
 
 ///Creamos nuestra matriz tablero
@@ -16,17 +14,18 @@ void inicialiar_tablero(Tablero* t)
         printf("Error, no hay memoria disponible para la matriz\n");
         return;
     }
-    uint8_t* bloque_memoria = calloc(TABLERO_FILAS * TABLERO_COLS, sizeof(uint8_t));
 
-    if(!bloque_memoria)
-    {
-        printf("Error, no hay memoria disponible para el bloque_memoria\n");
-        return;
-    }
+    uint8_t** ultimo = t->matriz + TABLERO_FILAS - 1;
 
-    for(int y = 0; y < TABLERO_FILAS; y++)
+    for(uint8_t** i = t->matriz; i <= ultimo; i++ )
     {
-        t->matriz[y] = bloque_memoria + (y * TABLERO_COLS);
+        *i = calloc(TABLERO_COLS, sizeof(uint8_t));
+
+        if(!*i)
+        {
+            destruir_tablero(t, i - t->matriz);
+            return;
+        }
     }
 }
 
@@ -40,12 +39,14 @@ void dibujar_tablero(Tablero* t, uint16_t offsetX, uint16_t offsetY)
             ///Si para una posicion de fila y columna no hay un cero, entonces dibujamos el color de la pieza
             if(t->matriz[y][x] != 0)
             {
-                dibujarRectangulo(offsetX + (x *TAMANIO_BLOQUE), offsetY + (y * TAMANIO_BLOQUE),TAMANIO_BLOQUE -1 , TAMANIO_BLOQUE -1, t->matriz[y][x]);
+
+                dibujar_rect(offsetX + (x *TAMANIO_BLOQUE), offsetY + (y * TAMANIO_BLOQUE),TAMANIO_BLOQUE -1 , TAMANIO_BLOQUE -1, t->matriz[y][x]);
+
             }
             ///Si no, entonces le pasamos como color un gris claro (fijarse la paleta de colores en el main por las dudas)
             else
             {
-                dibujarRectangulo(offsetX + (x * TAMANIO_BLOQUE), offsetY + (y * TAMANIO_BLOQUE),TAMANIO_BLOQUE -4, TAMANIO_BLOQUE-4, 8);
+                dibujar_rect(offsetX + (x * TAMANIO_BLOQUE), offsetY + (y * TAMANIO_BLOQUE),TAMANIO_BLOQUE -4, TAMANIO_BLOQUE-4, 8);
 
             }
 
@@ -69,11 +70,12 @@ bool FilaCompleta(uint8_t* plec)
 
 ///Funcion encargada de limpiar las filas, por el momento es void, quizas mas adelante nos interesa que sea booleana o entero
 
-void limpiar_filas(Tablero* t)
+int limpiar_filas(Tablero* t)
 {
     uint8_t** pinicio = t->matriz;
     uint8_t** plectura = t->matriz + (TABLERO_FILAS -1);
     uint8_t** pescritura = t->matriz + (TABLERO_FILAS - 1);
+    int lineas_borradas = 0;
 
     while(plectura >= pinicio)
     {
@@ -87,6 +89,10 @@ void limpiar_filas(Tablero* t)
             }
             pescritura--;
         }
+        else
+        {
+            lineas_borradas++;
+        }
         plectura--;
     }
 
@@ -95,6 +101,7 @@ void limpiar_filas(Tablero* t)
         memset(*pescritura,0,TABLERO_COLS);
         pescritura--;
     }
+    return lineas_borradas;
 }
 
 ///Funcion encargada de verificar si hay colicion por parte de una pieza
@@ -147,12 +154,22 @@ void anclar_pieza(Tablero* t, Pieza* p)
     }
 }
 
-void destruir_tablero(Tablero* t)
+void destruir_tablero(Tablero* t, int filas)
 {
-    if(t->matriz)
+    if(filas <= 0)
     {
-        free(t->matriz[0]);
         free(t->matriz);
         t->matriz = NULL;
+        return;
     }
+
+    uint8_t** ultimo = t->matriz + filas - 1;
+
+    for(uint8_t** i = t->matriz; i <= ultimo; i++)
+    {
+        free(*i);
+    }
+
+    free(t->matriz);
+    t->matriz = NULL;
 }
