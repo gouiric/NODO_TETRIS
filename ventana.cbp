@@ -13,7 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="GBT_v2026.1C.01/include" />
 				</Compiler>
+				<Linker>
+					<Add option="-lgbt" />
+					<Add directory="GBT_v2026.1C.01/lib" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/ventana" prefix_auto="1" extension_auto="1" />
@@ -31,9 +36,48 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="dibujo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dibujo.h" />
+		<Unit filename="funciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graficos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graficos.h" />
+		<Unit filename="header.h" />
+		<Unit filename="mEstados.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mEstados.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pNombre.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pNombre.h" />
+		<Unit filename="piezas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="piezas.h" />
+		<Unit filename="splash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="splash.h" />
+		<Unit filename="tablero.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tablero.h" />
+		<Unit filename="tetris.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tetris.h" />
+		<Unit filename="ventana.cbp" />
+		<Unit filename="ventana.depend" />
+		<Unit filename="ventana.layout" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

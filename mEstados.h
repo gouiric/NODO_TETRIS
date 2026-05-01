@@ -9,7 +9,8 @@ typedef enum{
     PANTALLA_SPLASH,
     PANTALLA_NOMBRE,
     PANTALLA_MENU,
-    PANTALLA_TETRIS
+    PANTALLA_TETRIS,
+    PANTALLA_DELUXE,
 }eEstadoJuego;
 
 //

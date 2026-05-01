@@ -5,9 +5,11 @@
 #include "mEstados.h"
 #include <stdio.h>
 
+
+
 Tetris* tetris = NULL;
 
-Tetris* inicializar_tetris(){
+Tetris* inicializar_tetris(bool modo_dx){
 
     tetris = malloc(sizeof(Tetris));
     if(!tetris){
@@ -23,8 +25,8 @@ Tetris* inicializar_tetris(){
     }
 
     srand(time(NULL));
-
-    tetris->tipo_pieza = rand()%7;
+    tetris->modo_dx = modo_dx;
+    tetris->tipo_pieza = tetris->modo_dx ? rand()%11 : rand()%7;
     cargar_pieza(&tetris->pieza, tetris->tipo_pieza);
     tetris->puntos = 0;
     tetris->contador_frames = 0;
@@ -41,7 +43,7 @@ void loop_dibujar_tetris()
 {
     limpiar(0);
     dibujar_tablero(&tetris->tablero, (320 - (TABLERO_COLS * TAMANIO_BLOQUE)) / 2, 4);
-    dibujar_pieza(&tetris->pieza, (320 - (TABLERO_COLS * TAMANIO_BLOQUE)) / 2, 4);
+    dibujar_pieza(&tetris->pieza, (320 - (TABLERO_COLS * TAMANIO_BLOQUE)) / 2, 4, tetris->modo_dx);
 }
 
 void loop_logica_tetris()
@@ -105,7 +107,7 @@ void rotar_pieza_activa(uint8_t sentido)
     }
 
     //si la pieza aux rotada no choca con nada entonces se la copiamos a nuestra pieza tetris
-    if(!colision(&tetris->tablero,&pieza_rotar,pieza_rotar.x,pieza_rotar.y))
+    if(!colision(&tetris->tablero,&pieza_rotar,pieza_rotar.x,pieza_rotar.y, tetris->modo_dx))
     {
         if(tetris->contacto) //Verificamos si hay o no contacto para saber si tenemos que resetear el cont_fijacion
         {
@@ -137,7 +139,7 @@ void mover_pieza(eGBT_Tecla tecla)
     if(x != 0 || y != 0)
     {
         //En caso que no haya colision, le actualizamos las posiciones a nuestra pieza
-        if(!colision(&tetris->tablero, &tetris->pieza, tetris->pieza.x +x, tetris->pieza.y + y))
+        if(!colision(&tetris->tablero, &tetris->pieza, tetris->pieza.x +x, tetris->pieza.y + y,tetris->modo_dx))
         {
             tetris->pieza.x += x;
             tetris->pieza.y += y;
@@ -161,7 +163,7 @@ bool procesar_caida()
     bool pieza_anclada = false;
 
     //Si no hay colicion, entonces estamos en el caso de que la pieza esta haciendo caida libre
-    if(!colision(&tetris->tablero, &tetris->pieza, tetris->pieza.x , tetris->pieza.y +1))
+    if(!colision(&tetris->tablero, &tetris->pieza, tetris->pieza.x , tetris->pieza.y +1,tetris->modo_dx))
     {
         tetris->contacto = false;
         tetris->contador_frames++;
@@ -181,7 +183,7 @@ bool procesar_caida()
 
         if(tetris->cont_fijacion >= (uint32_t)tetris->umbral_frames * 0.5)
         {
-            anclar_pieza(&tetris->tablero, &tetris->pieza);
+            anclar_pieza(&tetris->tablero, &tetris->pieza, tetris->modo_dx);
             pieza_anclada = true;
         }
     }
@@ -212,12 +214,13 @@ void obtener_nueva_pieza()
     int nueva_pieza;
 
     do{
-        nueva_pieza = rand()%7;
+        nueva_pieza = tetris->modo_dx ? rand() % 11 :  rand()%7;
     }while(tetris->tipo_pieza == nueva_pieza);
 
     tetris->tipo_pieza = nueva_pieza;
 
     cargar_pieza(&tetris->pieza, tetris->tipo_pieza);
+    //a
 }
 
 void actualizar_datos_tetris()
@@ -238,7 +241,7 @@ void actualizar_datos_tetris()
 
 bool perder()
 {
-    if(colision(&tetris->tablero,&tetris->pieza,tetris->pieza.x,tetris->pieza.y))
+    if(colision(&tetris->tablero,&tetris->pieza,tetris->pieza.x,tetris->pieza.y,tetris->modo_dx))
     {
         printf("Perdiste\n");
         return true;

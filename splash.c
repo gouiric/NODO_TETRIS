@@ -24,11 +24,15 @@ void loop_splash(){
     eGBT_Tecla tecla = gbt_obtener_tecla_presionada();
     if(tecla == GBTK_ESCAPE){
         contexto->corriendo = false;
-    }else if(tecla != GBTK_DESCONOCIDA){
+    }else if(tecla == GBTK_t){
         printf("Pasando a escena Tetris\n");    //Temporal
         cambiar_contexto(PANTALLA_TETRIS);
     }
-
+    else if(tecla == GBTK_d)
+    {
+        printf("Pasando a escena deluxe\n");
+        cambiar_contexto(PANTALLA_DELUXE);
+    }
     //Animacion titulo
     contexto->escenaActual->contador++;
     if(contexto->escenaActual->contador == 20){

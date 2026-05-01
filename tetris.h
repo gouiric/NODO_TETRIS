@@ -19,6 +19,7 @@ typedef struct{
     float umbral_frames;
     uint32_t cont_fijacion;
     bool contacto;
+    bool modo_dx;
 }Tetris;
 
 //
@@ -26,7 +27,7 @@ typedef struct{
 //
 extern Tetris* tetris;
 
-Tetris* inicializar_tetris();
+Tetris* inicializar_tetris(bool modo_dx);
 void limpiar_tetris();
 
 //

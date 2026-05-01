@@ -3,7 +3,7 @@
 
 
 /// Los colores
-const uint8_t COLORES_PIEZAS[7] = {3, 14, 2, 12, 13, 9, 1};
+const uint8_t COLORES_PIEZAS[11] = {3, 14, 2, 12, 13, 9, 1, 4, 5, 6, 7};
 
 /// Las 7 matrices de las piezas
 
@@ -56,8 +56,33 @@ const uint8_t FORMA_Z[4][4] = {
     {0, 0, 0, 0}
 };
 
+//a//
 
+const uint8_t FORMA_X[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 0, 0},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+};
 
+const uint8_t FORMA_C[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 1, 0},
+    {0, 1, 0, 0},
+    {0, 1, 1, 0}
+};
+const uint8_t FORMA_P[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 1, 0},
+    {0, 1, 1, 0},
+    {0, 1, 0, 0}
+};
+const uint8_t FORMA_PLUS[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 0, 0},
+    {1, 1, 1, 0},
+    {0, 1, 0, 0}
+};
 
 ///Toma como argumento pieza (estructura), y un tipo de pieza (0,1,2,3,4,5,6)
 void cargar_pieza(Pieza *p, int tipo_pieza)
@@ -79,13 +104,17 @@ void cargar_pieza(Pieza *p, int tipo_pieza)
                 case 4: p->matriz[y][x] = FORMA_J[y][x]; break;
                 case 5: p->matriz[y][x] = FORMA_S[y][x]; break;
                 case 6: p->matriz[y][x] = FORMA_Z[y][x]; break;
+                case 7: p->matriz[y][x] = FORMA_X[y][x]; break;
+                case 8: p->matriz[y][x] = FORMA_C[y][x]; break;
+                case 9: p->matriz[y][x] = FORMA_P[y][x]; break;
+                case 10: p->matriz[y][x] = FORMA_PLUS[y][x]; break;
                 default: p->matriz[y][x] = FORMA_I[y][x];break;
             }
         }
     }
 }
 
-void dibujar_pieza(Pieza* p, uint16_t x_tablero, uint16_t y_tablero)
+void dibujar_pieza(Pieza* p, uint16_t x_tablero, uint16_t y_tablero, bool modo_dx)
 {
     for(int y = 0; y < 4; y++)
     {
@@ -95,7 +124,13 @@ void dibujar_pieza(Pieza* p, uint16_t x_tablero, uint16_t y_tablero)
             {
                 if((p->y + y) >= 0)
                 {
-                    uint16_t pos_pantalla_x = x_tablero + ((p->x + x)*TAMANIO_BLOQUE);
+                    int tab_x = p->x + x;
+
+                    if(modo_dx)
+                    {
+                        tab_x = (tab_x % TABLERO_COLS + TABLERO_COLS) % TABLERO_COLS;
+                    }
+                    uint16_t pos_pantalla_x = x_tablero + (tab_x*TAMANIO_BLOQUE);
                     uint16_t pos_pantalla_y = y_tablero + ((p->y + y)*TAMANIO_BLOQUE);
                     dibujar_rect(pos_pantalla_x,pos_pantalla_y,TAMANIO_BLOQUE - 1, TAMANIO_BLOQUE - 1, p->color);
                 }

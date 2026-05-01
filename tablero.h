@@ -21,8 +21,8 @@ typedef struct
 void inicialiar_tablero(Tablero* t);
 void dibujar_tablero(Tablero* t, uint16_t offsetX, uint16_t offsetY);
 int limpiar_filas(Tablero* t);
-bool colision(Tablero* t, Pieza* p, int ox, int oy);
-void anclar_pieza(Tablero* t, Pieza* p);
+bool colision(Tablero* t, Pieza* p, int ox, int oy, bool modo_dx);
+void anclar_pieza(Tablero* t, Pieza* p, bool modo_dx);
 void destruir_tablero(Tablero* t, int filas);
 
 

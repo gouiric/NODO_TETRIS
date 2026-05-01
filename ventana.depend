@@ -312,7 +312,7 @@
 	<stdbool.h>
 	"dibujo.h"
 
-1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\mestados.h
+1777577441 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\mestados.h
 	<stdbool.h>
 	"dibujo.h"
 
@@ -337,7 +337,7 @@
 	<stdint.h>
 	<string.h>
 
-1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\mestados.c
+1777577485 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\mestados.c
 	"mEstados.h"
 	<stdlib.h>
 	<stdbool.h>
@@ -354,12 +354,12 @@
 
 1777348846 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\pnombre.h
 
-1777441300 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tetris.h
+1777577441 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tetris.h
 	"tablero.h"
 	"piezas.h"
 	<time.h>
 
-1777443014 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tablero.h
+1777578236 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tablero.h
 	<stdint.h>
 	<stdbool.h>
 	<string.h>
@@ -367,11 +367,12 @@
 	"piezas.h"
 	"dibujo.h"
 
-1777441300 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\piezas.h
+1777578216 c:\users\lucas\desktop\nodo_tetris-prototipo-merge\piezas.h
 	<stdint.h>
+	<stdbool.h>
 	<GBT/gbt.h>
 
-1777443099 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\piezas.c
+1777578177 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\piezas.c
 	"piezas.h"
 	"tablero.h"
 
@@ -385,7 +386,7 @@
 	<math.h>
 	<stdio.h>
 
-1777348846 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\splash.c
+1777577441 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\splash.c
 	"splash.h"
 	"GBT/gbt_entrada.h"
 	"dibujo.h"
@@ -393,7 +394,7 @@
 	<stdio.h>
 	"graficos.h"
 
-1777441300 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tetris.c
+1777578906 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tetris.c
 	"tetris.h"
 	<stdlib.h>
 	"GBT/gbt_entrada.h"
@@ -425,7 +426,7 @@
 	<stdlib.h>
 	<stdint.h>
 
-1777443213 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tablero.c
+1777578610 source:c:\users\lucas\desktop\nodo_tetris-prototipo-merge\tablero.c
 	"tablero.h"
 	<stdlib.h>
 	<stdio.h>

@@ -105,7 +105,7 @@ int limpiar_filas(Tablero* t)
 }
 
 ///Funcion encargada de verificar si hay colicion por parte de una pieza
-bool colision(Tablero* t, Pieza* p, int ox, int oy)
+bool colision(Tablero* t, Pieza* p, int ox, int oy, bool modo_dx)
 {
     for(int y = 0; y < 4; y++)
     {
@@ -118,7 +118,14 @@ bool colision(Tablero* t, Pieza* p, int ox, int oy)
                 int tab_x = ox + x;
                 int tab_y = oy + y;
 
-                if(tab_x < 0 || tab_x >= TABLERO_COLS || tab_y >= TABLERO_FILAS)
+                if(modo_dx)
+                {
+                    tab_x = (tab_x % TABLERO_COLS + TABLERO_COLS) % TABLERO_COLS;
+                }
+                else if(tab_x < 0 || tab_x >= TABLERO_COLS)
+                    return true;
+
+                if(tab_y >= TABLERO_FILAS)
                     return true;
                 ///Es te if, verifica si la pieza en la posicion [tab_y][tab_x] existe una pieza ya cargada en el tablero
                 ///En caso de que existe, entonces quiere decir que la pieza colisiono con la pieza que estaba en el tablero
@@ -132,7 +139,7 @@ bool colision(Tablero* t, Pieza* p, int ox, int oy)
 
 ///Funcion encargada de anclar la pieza con la matriz del tablero
 
-void anclar_pieza(Tablero* t, Pieza* p)
+void anclar_pieza(Tablero* t, Pieza* p, bool modo_dx)
 {
     for(int y = 0; y < 4; y++)
     {
@@ -143,6 +150,11 @@ void anclar_pieza(Tablero* t, Pieza* p)
                 ///tab_x y tab_y son las posiciones para el tablero, toma la posicion de la pieza tanto en x como en y
                 int tab_x = p->x + x;
                 int tab_y = p->y + y;
+
+                if(modo_dx)
+                {
+                    tab_x = (tab_x % TABLERO_COLS + TABLERO_COLS)%TABLERO_COLS;
+                }
 
                 if(tab_y >= 0 && tab_y < TABLERO_FILAS && tab_x >= 0 && tab_x < TABLERO_COLS)
                 {

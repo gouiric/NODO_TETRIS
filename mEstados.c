@@ -46,7 +46,7 @@ void correr(){
 }
 
 void cambiar_contexto(eEstadoJuego siguienteEstado){
-    if(contexto->estadoActual == PANTALLA_TETRIS){
+    if(contexto->estadoActual == PANTALLA_TETRIS || contexto->estadoActual == PANTALLA_DELUXE){
         limpiar_tetris();
     }
     if(siguienteEstado != contexto->estadoActual){
@@ -63,9 +63,17 @@ void cambiar_contexto(eEstadoJuego siguienteEstado){
                 //contexto->escenaActual = ;
                 break;
             case PANTALLA_TETRIS:
-                if(!inicializar_tetris()){
+                if(!inicializar_tetris(false)){
                     printf("Error al iniciar mochila tetris\n");
                     contexto->corriendo = false;}
+                contexto->escenaActual = &contexto->escenaTetris;
+                break;
+            case PANTALLA_DELUXE:
+                if(!inicializar_tetris(true))
+                {
+                    printf("Error al inicializar el tetris\n");
+                    contexto->corriendo = false;
+                }
                 contexto->escenaActual = &contexto->escenaTetris;
                 break;
         }
