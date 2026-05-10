@@ -1,6 +1,7 @@
 #ifndef GRAFICOS_H_INCLUDED
 #define GRAFICOS_H_INCLUDED
 #include <stdint.h>
+#include <stdbool.h>
 
 #define CANTIDAD_COLORES_SPRITE 4
 
@@ -13,7 +14,7 @@ extern uint8_t M_letraI[16][16];
 extern uint8_t M_letraS[16][16];
 
 //FUENTE NORMAL 8x8
-extern uint8_t fuente[36][8][8];
+extern uint8_t fuente[64][8][8];
 
 //MACROS LETRAS 0-25: A-Z, 26-35: 0-9
 #define L_A 0
@@ -52,6 +53,12 @@ extern uint8_t fuente[36][8][8];
 #define L_7 33
 #define L_8 34
 #define L_9 35
+
+//Minos
+extern uint8_t minosTex[4][4][4];
+extern uint8_t minosComb[16][4][4];
+
+void cargar_combinaciones_minos();
 
 //Sprite 16x16 con paleta 4 colores
 typedef struct{

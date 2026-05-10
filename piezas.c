@@ -1,0 +1,171 @@
+#include "piezas.h"
+#include "tablero.h"
+
+
+/// Los colores
+const uint8_t COLORES_PIEZAS[11] = {3, 14, 2, 12, 13, 9, 1, 4, 5, 6, 7};
+
+/// Las 7 matrices de las piezas
+
+const uint8_t FORMA_I[4][4] = {
+    {0, 0, 0, 0},
+    {1, 1, 1, 1},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_O[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 1, 0},
+    {0, 1, 1, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_T[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 0, 0},
+    {1, 1, 1, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_L[4][4] = {
+    {0, 0, 0, 0},
+    {0, 0, 1, 0},
+    {1, 1, 1, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_J[4][4] = {
+    {0, 0, 0, 0},
+    {1, 0, 0, 0},
+    {1, 1, 1, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_S[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 1, 0},
+    {1, 1, 0, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_Z[4][4] = {
+    {0, 0, 0, 0},
+    {1, 1, 0, 0},
+    {0, 1, 1, 0},
+    {0, 0, 0, 0}
+};
+
+//a//
+
+const uint8_t FORMA_X[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 0, 0},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+};
+
+const uint8_t FORMA_C[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 1, 0},
+    {0, 1, 0, 0},
+    {0, 1, 1, 0}
+};
+const uint8_t FORMA_P[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 1, 0},
+    {0, 1, 1, 0},
+    {0, 1, 0, 0}
+};
+const uint8_t FORMA_PLUS[4][4] = {
+    {0, 0, 0, 0},
+    {0, 1, 0, 0},
+    {1, 1, 1, 0},
+    {0, 1, 0, 0}
+};
+
+///Toma como argumento pieza (estructura), y un tipo de pieza (0,1,2,3,4,5,6)
+void cargar_pieza(Pieza *p, int tipo_pieza, int col)
+{
+    p->x = 3;
+    p->y = -1;
+    //p->color = COLORES_PIEZAS[tipo_pieza];
+    p->color = col;
+
+    for(int y = 0; y < 4; y++)
+    {
+        for(int x = 0; x < 4; x++)
+        {
+            switch(tipo_pieza)
+            {
+                case 0: p->matriz[y][x] = FORMA_I[y][x]; break;
+                case 1: p->matriz[y][x] = FORMA_O[y][x]; break;
+                case 2: p->matriz[y][x] = FORMA_T[y][x]; break;
+                case 3: p->matriz[y][x] = FORMA_L[y][x]; break;
+                case 4: p->matriz[y][x] = FORMA_J[y][x]; break;
+                case 5: p->matriz[y][x] = FORMA_S[y][x]; break;
+                case 6: p->matriz[y][x] = FORMA_Z[y][x]; break;
+                case 7: p->matriz[y][x] = FORMA_X[y][x]; break;
+                case 8: p->matriz[y][x] = FORMA_C[y][x]; break;
+                case 9: p->matriz[y][x] = FORMA_P[y][x]; break;
+                case 10: p->matriz[y][x] = FORMA_PLUS[y][x]; break;
+                default: p->matriz[y][x] = FORMA_I[y][x];break;
+            }
+        }
+    }
+}
+
+void dibujar_pieza(Pieza* p, uint16_t x_tablero, uint16_t y_tablero, bool modo_dx)
+{
+    for(int y = 0; y < 4; y++)
+    {
+        for(int x = 0; x < 4; x++)
+        {
+            if(p->matriz[y][x] != 0)
+            {
+                if((p->y + y) >= 0)
+                {
+                    int tab_x = p->x + x;
+                    int tab_y = p->y + y;
+
+                    if(modo_dx)
+                    {
+                        tab_x = (tab_x % TABLERO_COLS + TABLERO_COLS) % TABLERO_COLS;
+                    }
+                    /*uint16_t pos_pantalla_x = x_tablero + (tab_x*TAMANIO_BLOQUE);
+                    uint16_t pos_pantalla_y = y_tablero + ((p->y + y)*TAMANIO_BLOQUE);
+                    dibujar_rect(pos_pantalla_x,pos_pantalla_y,TAMANIO_BLOQUE - 1, TAMANIO_BLOQUE - 1, p->color);*/
+                    dibujar_mino(tab_x, tab_y , p->color);
+
+                }
+            }
+        }
+    }
+}
+
+
+void sentido_horario(uint8_t mat_destino[][ORDEN_PIEZA], uint8_t mat_origen[][ORDEN_PIEZA])
+{
+    int fila_invertida = ORDEN_PIEZA - 1;
+
+    for(int y = 0; y < ORDEN_PIEZA; y++)
+    {
+        for(int x = 0; x < ORDEN_PIEZA; x++)
+        {
+            mat_destino[x][fila_invertida - y] = mat_origen[y][x];
+        }
+    }
+}
+
+void sentido_antihorario(uint8_t mat_destino[][ORDEN_PIEZA], uint8_t mat_origen[][ORDEN_PIEZA])
+{
+    int columna_invertida = ORDEN_PIEZA - 1;
+
+    for(int y = 0; y < ORDEN_PIEZA; y++)
+    {
+        for(int x = 0; x < ORDEN_PIEZA; x++)
+        {
+            mat_destino[columna_invertida - x][y] = mat_origen[y][x];
+        }
+    }
+}

@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "pNombre.h"
+#include "tetris.h"
+#include "graficos.h"
 
 Context* contexto = NULL;
 
@@ -15,6 +17,7 @@ Context* inicializar_contexto(){
         fprintf(stderr, "Error al solicitar memoria para contexto\n");
         return NULL;
     }
+    cargar_combinaciones_minos();
 
     contexto->estadoActual = PANTALLA_SPLASH;
     contexto->corriendo = true;
@@ -31,6 +34,10 @@ Context* inicializar_contexto(){
     memset(contexto->nombreActual, 0, sizeof(char) * TAMANIO_NOMBRE);
     contexto->tamanioNombre = 0;
 
+    //Relacionado a pantalla tetris
+    contexto->escenaTetris.dibujar_escena = loop_dibujar_tetris;
+    contexto->escenaTetris.loop_escena = loop_logica_tetris;
+
     return contexto;
 }
 
@@ -41,20 +48,35 @@ void correr(){
 }
 
 void cambiar_contexto(eEstadoJuego siguienteEstado){
+    if(contexto->estadoActual == PANTALLA_TETRIS || contexto->estadoActual == PANTALLA_DELUXE){
+        limpiar_tetris();
+    }
     if(siguienteEstado != contexto->estadoActual){
+        contexto->estadoActual = siguienteEstado;
         switch(siguienteEstado){
             case PANTALLA_SPLASH:
                 printf("El juego no deberia volver al splash pero xd\n");
-                contexto->estadoActual = siguienteEstado;
                 contexto->escenaActual = &contexto->escenaSplash;
                 break;
             case PANTALLA_NOMBRE:
-                contexto->estadoActual = siguienteEstado;
                 contexto->escenaActual = &contexto->escenaNombre;
                 break;
             case PANTALLA_MENU:
-                contexto->estadoActual = siguienteEstado;
                 //contexto->escenaActual = ;
+                break;
+            case PANTALLA_TETRIS:
+                if(!inicializar_tetris(false)){
+                    printf("Error al iniciar mochila tetris\n");
+                    contexto->corriendo = false;}
+                contexto->escenaActual = &contexto->escenaTetris;
+                break;
+            case PANTALLA_DELUXE:
+                if(!inicializar_tetris(true))
+                {
+                    printf("Error al inicializar el tetris\n");
+                    contexto->corriendo = false;
+                }
+                contexto->escenaActual = &contexto->escenaTetris;
                 break;
         }
     }

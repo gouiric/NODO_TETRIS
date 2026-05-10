@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "dibujo.h"
 
-#define ESCALA_VENTANA 1
+#define ESCALA_VENTANA 2
 
 #define CANT_COLOR 16
 tGBT_ColorRGB color[16] = {
