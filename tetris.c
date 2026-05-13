@@ -5,6 +5,7 @@
 #include "graficos.h"
 #include "tablero.h"
 #include "mEstados.h"
+#include "opciones.h"
 #include <stdio.h>
 
 
@@ -35,9 +36,9 @@ Tetris* inicializar_tetris(bool modo_dx){
     cargar_pieza(&tetris->pieza, tetris->tipo_pieza, rand()%16);
     tetris->puntos = 0;
     tetris->contador_frames = 0;
-    tetris->velocidad_ms = 1000;
+    tetris->velocidad_ms = obtener_velocidad_actual_ms();
     tetris->cant_piezas = 0;
-    tetris->umbral_frames = 30;
+    tetris->umbral_frames = 30 * (tetris->velocidad_ms / 1000);
     tetris->cont_fijacion = 0;
     tetris->contacto = false;
 
@@ -54,10 +55,10 @@ void loop_dibujar_tetris()
     //Dibujar puntos
     int origen_cuadroX = pantalla->tab_offsetX + pantalla->tam_tabX + 10;
     dibujar_rect( origen_cuadroX, pantalla->tab_offsetY, 60, 25, 0);
-    dibujar_texto("puntos", 6, 69, 11, 1, 13);
+    dibujar_texto("puntos", 69, 11, 1, 13);
     char points[12];
     sprintf(points, "%d", tetris->puntos);
-    dibujar_texto(points, strlen(points), 69, 15, 1, 13);
+    dibujar_texto(points, 69, 15, 1, 13);
 }
 
 void loop_logica_tetris()

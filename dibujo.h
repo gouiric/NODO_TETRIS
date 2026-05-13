@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include "graficos.h"
 
+#define ESPACIO -1
+
+
+
 typedef struct{
     int ancho;
     int alto;
@@ -35,7 +39,8 @@ void dibujar_mino(uint8_t tab_x, uint8_t tab_y, uint8_t col);
 // toma un string y lo dibuja en pantalla en base a una fuente y llamando a dibujar_spr_mono_porc
 // [1]puntero a string, [2]tamaño string, [3]Posición inicial X en porcentaje, [4]Posición inicial Y en porcentaje
 // [4]Escala de sprites, [5]Color letras
-void dibujar_texto(char* texto, int largoTexto, float porcXI, float porcYI, int escala, int col);
+void dibujar_texto(char* texto, float porcXI, float porcYI, int escala, int col);
+
 
 void limpiar_helper_pantalla();
 

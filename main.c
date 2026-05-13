@@ -4,6 +4,7 @@
 #include "mEstados.h"
 #include <stdbool.h>
 #include "dibujo.h"
+#include "opciones.h"
 
 #define ESCALA_VENTANA 2
 
@@ -29,9 +30,10 @@ tGBT_ColorRGB color[16] = {
 
 int main(int argc, char* argv[])
 {
-    int ANCHO_VENTANA = 320;
-    int ALTO_VENTANA = 200;
-    int ESCALA_V = 1;
+    cargar_crear_archivo(ARCHIVO_OP);
+    int ANCHO_VENTANA = obtener_ancho_actual();
+    int ALTO_VENTANA = obtener_alto_actual();
+    int ESCALA_V = (ANCHO_VENTANA == 640) ? 2: 1;
     //Permitir al usuario elegir modo de video
     if(argc > 1){
         if(argv[1][0] == '-'){

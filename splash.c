@@ -38,6 +38,11 @@ void loop_splash(){
         printf("Pasando a escena nombre\n");
         cambiar_contexto(PANTALLA_NOMBRE);
     }
+    else if(tecla == GBTK_o)
+    {
+        printf("Pasando a escena opciones\n");
+        cambiar_contexto(PANTALLA_OPCIONES);
+    }
     //Animacion titulo
     contexto->escenaActual->contador++;
     if(contexto->escenaActual->contador == 20){

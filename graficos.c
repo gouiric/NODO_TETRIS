@@ -374,6 +374,7 @@ uint8_t fuente[64][8][8] ={
         {0,0,0,1,0,0,0,0}, {0,0,1,0,0,0,0,0}, {0,1,0,0,0,0,0,0}, {0,0,0,0,0,0,0,0}
     }
 }; // Fin de la matriz gigante
+// jajaajajajaj
 
 uint8_t minosTex[4][4][4] =
 {

@@ -5,6 +5,8 @@
 
 #define TAMANIO_NOMBRE 128
 
+#define ARCHIVO_OP "opciones.bin"
+
 typedef enum{
     PANTALLA_SPLASH,
     PANTALLA_NOMBRE,
