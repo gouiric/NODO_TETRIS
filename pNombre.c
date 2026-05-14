@@ -26,14 +26,21 @@ void dibujar_pantalla_nombre(){
 void loop_pantalla_nombre(){
     eGBT_Tecla tecla = gbt_obtener_tecla_presionada();
     if(tecla == GBTK_ESCAPE){
+        printf("Esto hay que sacarlo\n");
         cambiar_contexto(PANTALLA_SPLASH);
+    }else if(tecla == GBTK_RETROCESO)
+    {
+            if(contexto->tamanioNombre > 0){
+                contexto->nombreActual[contexto->tamanioNombre] = '\0';
+                contexto->tamanioNombre -= 1;
+                }
     }else if(tecla != GBTK_DESCONOCIDA){
-        if(tecla >= GBTK_a && tecla <=GBTK_z){
+        if(tecla >= GBTK_a && tecla <= GBTK_z){
             char letra = tecla - GBTK_a + 'a';
             printf("char:%c\n",letra);
             contexto->nombreActual[contexto->tamanioNombre] = letra;
             contexto->tamanioNombre++;
-        }else if(tecla == GBTK_ENTER){
+        }else if(tecla == GBTK_ENTER && contexto->tamanioNombre > 0){
             contexto->nombreActual[contexto->tamanioNombre] = '\0';
             printf("Nombre: %s\n",contexto->nombreActual);
             cambiar_contexto(PANTALLA_MENU);

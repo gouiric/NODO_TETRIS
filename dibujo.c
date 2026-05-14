@@ -11,6 +11,7 @@
 
 static int obtener_indice(char caracter);
 static int calcular_ancho_letra(uint8_t letra[8][8]);
+float calcular_ancho_texto(char* texto, int escala);
 
 Pantalla* pantalla = NULL;
 
@@ -116,6 +117,15 @@ void dibujar_texto(char* texto, float porcXI, float porcYI, int escala, int col)
         return;
     }
 
+    if(porcXI < 0)
+    {
+        float ancho_px = calcular_ancho_texto(texto, escala);
+
+        float ancho_porc = (ancho_px / pantalla->ancho) * 100.0f;
+
+        porcXI = 50.0f - (ancho_porc / 2.0f);
+    }
+
     int actual;
     float cursor_x = porcXI;
 
@@ -147,13 +157,30 @@ int obtener_indice(char caracter)
     {
         return caracter - 'A';
     }
-    if(caracter >= '0' && caracter <= '9')
+    else if(caracter >= '0' && caracter <= '9')
     {
         return caracter - '0' + 26;
     }
-    if(caracter >= 'a' && caracter <= 'z')
+    else if(caracter >= 'a' && caracter <= 'z')
     {
         return caracter - 'a' + 36;
+    }else
+    {   //CARACTERES ESPECIALES
+        switch(caracter)
+        {
+            case '<':
+                return 62;
+                break;
+            case '>':
+                return 63;
+                break;
+            case ' ':
+                return ESPACIO;
+                break;
+            case '®':
+                return 64;
+                break;
+        }
     }
 
     //Ojoooo con este return, Por el momento se asume que no hay caracteres invalidos
@@ -174,6 +201,32 @@ int calcular_ancho_letra(uint8_t letra[8][8])
             }
         }
     }
+}
+
+float calcular_ancho_texto(char* texto, int escala)
+{
+    float ancho_total = 0;
+
+    while(*texto)
+    {
+        int actual = obtener_indice(*texto);
+
+        if(actual == ESPACIO)
+        {
+            ancho_total += 3 * escala;
+        }
+        else
+        {
+            int ancho_letra = calcular_ancho_letra(fuente[actual]);
+
+            // +1 pixel de separación
+            ancho_total += (ancho_letra + 1) * escala;
+        }
+
+        texto++;
+    }
+
+    return ancho_total;
 }
 
 

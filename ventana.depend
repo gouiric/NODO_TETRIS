@@ -203,7 +203,7 @@
 	"dibujo.h"
 	"mEstados.h"
 
-1778721310 source:c:\users\saave\documents\devel\nodo_tetris\dibujo.c
+1778741155 source:c:\users\saave\documents\devel\nodo_tetris\dibujo.c
 	"dibujo.h"
 	"GBT/gbt_graficos.h"
 	<stdint.h>
@@ -213,24 +213,24 @@
 	"graficos.h"
 	<string.h>
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\dibujo.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\dibujo.h
 	<stdint.h>
 	"graficos.h"
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\graficos.h
+1778740874 c:\users\saave\documents\devel\nodo_tetris\graficos.h
 	<stdint.h>
 	<stdbool.h>
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
 	<stdint.h>
 
-1778721310 source:c:\users\saave\documents\devel\nodo_tetris\graficos.c
+1778741302 source:c:\users\saave\documents\devel\nodo_tetris\graficos.c
 	"graficos.h"
 	<stdint.h>
 	<string.h>
 	<stdbool.h>
 
-1778728241 source:c:\users\saave\documents\devel\nodo_tetris\mestados.c
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\mestados.c
 	"mEstados.h"
 	<stdlib.h>
 	<stdbool.h>
@@ -244,25 +244,25 @@
 	"opciones.h"
 	"pMenu.h"
 
-1778728106 c:\users\saave\documents\devel\nodo_tetris\mestados.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\mestados.h
 	<stdbool.h>
 	"dibujo.h"
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
 	<stdint.h>
 
-1778721311 c:\users\saave\documents\devel\nodo_tetris\splash.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\splash.h
 	"dibujo.h"
 	"mEstados.h"
 
-1778721311 c:\users\saave\documents\devel\nodo_tetris\pnombre.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\pnombre.h
 
-1778721311 c:\users\saave\documents\devel\nodo_tetris\tetris.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\tetris.h
 	"tablero.h"
 	"piezas.h"
 	<time.h>
 
-1778721311 c:\users\saave\documents\devel\nodo_tetris\tablero.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\tablero.h
 	<stdint.h>
 	<stdbool.h>
 	<string.h>
@@ -270,32 +270,32 @@
 	"piezas.h"
 	"dibujo.h"
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
 	"gbt_entrada.h"
 	"gbt_graficos.h"
 	"gbt_logger.h"
 	"gbt_temporizador.h"
 	"gbt_vector.h"
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
 	<stdint.h>
 
-1778721310 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
 	<stdlib.h>
 	<stdint.h>
 
-1778721311 c:\users\saave\documents\devel\nodo_tetris\piezas.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\piezas.h
 	<stdint.h>
 	<stdbool.h>
 	<GBT/gbt.h>
 
-1778725720 c:\users\saave\documents\devel\nodo_tetris\opciones.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\opciones.h
 	"dibujo.h"
 	"mEstados.h"
 
-1778735312 source:c:\users\saave\documents\devel\nodo_tetris\opciones.c
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\opciones.c
 	"opciones.h"
 	"GBT/gbt_entrada.h"
 	"stdio.h"
@@ -304,11 +304,11 @@
 	"dibujo.h"
 	<string.h>
 
-1778721311 source:c:\users\saave\documents\devel\nodo_tetris\piezas.c
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\piezas.c
 	"piezas.h"
 	"tablero.h"
 
-1778728625 source:c:\users\saave\documents\devel\nodo_tetris\pnombre.c
+1778741663 source:c:\users\saave\documents\devel\nodo_tetris\pnombre.c
 	"pNombre.h"
 	"dibujo.h"
 	"pNombre.h"
@@ -318,7 +318,7 @@
 	<math.h>
 	<stdio.h>
 
-1778728678 source:c:\users\saave\documents\devel\nodo_tetris\splash.c
+1778737135 source:c:\users\saave\documents\devel\nodo_tetris\splash.c
 	"splash.h"
 	"GBT/gbt_entrada.h"
 	"dibujo.h"
@@ -326,13 +326,13 @@
 	<stdio.h>
 	"graficos.h"
 
-1778721311 source:c:\users\saave\documents\devel\nodo_tetris\tablero.c
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\tablero.c
 	"tablero.h"
 	<stdlib.h>
 	<stdio.h>
 	"dibujo.h"
 
-1778721311 source:c:\users\saave\documents\devel\nodo_tetris\tetris.c
+1778740587 source:c:\users\saave\documents\devel\nodo_tetris\tetris.c
 	"tetris.h"
 	<stdlib.h>
 	"GBT/gbt_entrada.h"
@@ -343,7 +343,7 @@
 	"opciones.h"
 	<stdio.h>
 
-1778728020 source:c:\users\saave\documents\devel\nodo_tetris\main.c
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\main.c
 	<stdio.h>
 	"GBT/gbt.h"
 	"GBT/gbt_graficos.h"
@@ -352,9 +352,9 @@
 	"dibujo.h"
 	"opciones.h"
 
-1778728092 c:\users\saave\documents\devel\nodo_tetris\pmenu.h
+1778736352 c:\users\saave\documents\devel\nodo_tetris\pmenu.h
 
-1778728530 source:c:\users\saave\documents\devel\nodo_tetris\pmenu.c
+1778741185 source:c:\users\saave\documents\devel\nodo_tetris\pmenu.c
 	"pMenu.h"
 	"dibujo.h"
 	"mEstados.h"

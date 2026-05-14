@@ -14,7 +14,7 @@ extern uint8_t M_letraI[16][16];
 extern uint8_t M_letraS[16][16];
 
 //FUENTE NORMAL 8x8
-extern uint8_t fuente[64][8][8];
+extern uint8_t fuente[65][8][8];
 
 //MACROS LETRAS 0-25: A-Z, 26-35: 0-9
 #define L_A 0

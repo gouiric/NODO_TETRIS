@@ -19,7 +19,7 @@ void dibujar_splash(){
     dibujar_spr_porc(&C_letraI, 16, 16, 69, 10+offV, 3 * pantalla->escala_v);
     dibujar_spr_porc(&C_letraS, 16, 16, 83, 10+offV, 3 * pantalla->escala_v);
 
-    dibujar_texto("Presiona cualquier tecla", 10, 75, 2, 3);
+    dibujar_texto("Presiona cualquier tecla", -1, 75, 2, 3);
 }
 
 void loop_splash(){
