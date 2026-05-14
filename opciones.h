@@ -13,6 +13,7 @@ typedef struct
     int resolucion_elegida;
     int velocidad_elegida;
     int paleta_elegida;
+    int escala_ventana;
 }Configuracion;
 
 
@@ -27,6 +28,7 @@ void loop_opciones();
 float obtener_velocidad_actual_ms();
 int obtener_ancho_actual();
 int obtener_alto_actual();
+int obtener_escala_actual();
 
 ///Por el momento es medio auxiliar
 void aplicar_cambios_graficos();

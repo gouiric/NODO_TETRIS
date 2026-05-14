@@ -48,6 +48,7 @@ bool cargar_crear_archivo(const char* nombre_archivo)
         config_actual.paleta_elegida = 0;
         config_actual.resolucion_elegida = 0;
         config_actual.velocidad_elegida = 0;
+        config_actual.escala_ventana = 1;
 
         return guardar_configuraciones(nombre_archivo);
     }
@@ -152,6 +153,9 @@ int obtener_ancho_actual()
 int obtener_alto_actual()
 {
     return *(resoluciones_alto + config_actual.resolucion_elegida);
+}
+int obtener_escala_actual(){
+    return config_actual.escala_ventana;
 }
 ////////////////////////////////////////////////7
 //Por el momento es aux
