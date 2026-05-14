@@ -8,6 +8,14 @@
 #define SENTIDO_ANTIHORARIO 0
 #define SENTIDO_HORARIO 1
 
+/*
+            - Por el momento no hacemos un conteo historio de las lineas borradas (se puede agregar)
+            - Por el momento el archivo no guarda tampoco ese dato
+            - Por el momento el archivo tampoco guarda los datos de la pieza anterior y la siguiente
+            - Por el momento el archivo no guarda ancho del tablero para el modo dx
+            - Por el momento no hacemos un conteo de nivel y tampoco el archivo lo guarda (se puede agregar)
+*/
+
 typedef struct{
     Tablero tablero;
     Pieza pieza;
@@ -20,7 +28,21 @@ typedef struct{
     uint32_t cont_fijacion;
     bool contacto;
     bool modo_dx;
+    bool en_pausa;
 }Tetris;
+
+//Por el momento lo creo aca
+typedef struct
+{
+    uint8_t matriz_tablero[TABLERO_FILAS][TABLERO_COLS];
+    Pieza Pieza;
+    float velocidad_ms;
+    int cant_piezas;
+    int puntos;
+    int tipo_pieza;
+    bool modo_dx;
+}PartidaGuardada;
+
 
 //
 // Los datos relacionados a tetris ahora existen en una mochila independiente al contexto;
@@ -46,5 +68,11 @@ void obtener_nueva_pieza();
 void actualizar_datos_tetris();
 bool perder();
 void procesar_impacto();
+void dibujar_filtro_pausa(uint8_t col);
+
+///Logica para el archivo
+
+bool guardar_partida(const char* nombre_archivo);
+bool cargar_partida(const char* nombre_archivo);
 
 #endif

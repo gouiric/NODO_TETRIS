@@ -172,7 +172,7 @@ void aplicar_cambios_graficos()
 
     int escala = (ancho == 640) ? 2:1;
 
-    gbt_crear_ventana("Soy un cambio", ancho, alto, 2);
+    gbt_crear_ventana("Soy un cambio", ancho, alto, config_actual.escala_ventana);
     gbt_aplicar_paleta(color, 16, GBT_FORMATO_888);
     inicializar_helper_dibujo(ancho, alto,escala);
 }

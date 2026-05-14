@@ -4,6 +4,7 @@
 #include "mEstados.h"
 #include <stdio.h>
 #include "graficos.h"
+#include "tetris.h"
 
 void dibujar_splash(){
     limpiar(7);
@@ -27,6 +28,21 @@ void loop_splash(){
     }else if(tecla == GBTK_t){
         printf("Pasando a escena Tetris\n");    //Temporal
         cambiar_contexto(PANTALLA_TETRIS);
+    }
+    else if(tecla == GBTK_c)
+    {
+        printf("Intentando restaurar partida\n");
+        cambiar_contexto(PANTALLA_TETRIS);
+
+        if(cargar_partida("partida.bin"))
+        {
+            printf("ESTOY DE VUELTA\n");
+        }
+        else
+        {
+            printf("Error\n");
+            cambiar_contexto(PANTALLA_SPLASH);
+        }
     }
     else if(tecla == GBTK_d)
     {

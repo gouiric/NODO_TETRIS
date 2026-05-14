@@ -41,6 +41,7 @@ Tetris* inicializar_tetris(bool modo_dx){
     tetris->umbral_frames = 30 * (tetris->velocidad_ms / 1000);
     tetris->cont_fijacion = 0;
     tetris->contacto = false;
+    tetris->en_pausa = false;
 
     return tetris;
 }
@@ -59,6 +60,46 @@ void loop_dibujar_tetris()
     char points[12];
     sprintf(points, "%d", tetris->puntos);
     dibujar_texto(points, 69, 15, 1, 13);
+
+    if(tetris->en_pausa)
+    {
+        dibujar_filtro_pausa(8);
+        //Esto lo podemos volar o hacer mas lindo
+
+        //Lo que intente hacer es darle un recuadro al texto "en pausa"
+        //Intento calcular el centro de pantalla y determino un ancho y un alto para esa caja
+        //Una de las funciones dibujar_rect me sirve para darle un borde
+        //Se podria hacer mejor, o directamente pasarle los datos harcodeados
+        //Y nos ahorramos en cuentas
+        int centro_x = pantalla->tab_offsetX + (pantalla->tam_tabX / 2);
+        int centro_y = pantalla->tab_offsetY + (pantalla->tam_tabY / 2);
+
+        int ancho_caja = 300;
+        int alto_caja = 150;
+
+        int caja_x = centro_x - (ancho_caja / 2);
+        int caja_y = centro_y - (alto_caja / 2);
+        dibujar_rect(caja_x , caja_y , ancho_caja +2, alto_caja + 2, 4);
+        dibujar_rect(caja_x+1, caja_y +1, ancho_caja, alto_caja, 0);
+
+        //Un contador de frames que me va a servir para darle el efecto de aparecer y desaparecer al texto
+
+        //No se porque tiene que ser static esta variable, pero si no es static no funca
+        static int frames_contador = 0;
+        frames_contador++;
+
+        if((frames_contador / 30) % 2 == 0)
+        {
+            dibujar_texto("EN PAUSA",35,40,2*pantalla->escala_v,14);
+        }
+
+        if(frames_contador >= 60)
+        {
+            frames_contador = 0;
+        }
+
+        ///inclusive quizas no hace falta darle ese recuadro, lo podriamos sacar. Por el momento existe para que se note mejor el texto
+    }
 }
 
 void loop_logica_tetris()
@@ -69,6 +110,24 @@ void loop_logica_tetris()
     {
         printf("Volver a pantalla inicial\n");
         cambiar_contexto(PANTALLA_SPLASH);
+        return;
+    }
+    if(tecla == GBTK_s)
+    {
+        if(guardar_partida("partida.bin"))
+        {
+            cambiar_contexto(PANTALLA_SPLASH);
+            return;
+        }
+    }
+    if(tecla == GBTK_p)
+    {
+        tetris->en_pausa = !tetris->en_pausa;
+        printf("Tecla P apretada\n");
+    }
+    if(tetris->en_pausa)
+    {
+        printf("Estoy en pausa\n");
         return;
     }
     if(tecla == GBTK_x)
@@ -281,4 +340,99 @@ void procesar_impacto()
     printf("Velocidad: %.1f ms\n", tetris->velocidad_ms);
     printf("Tolerancia: %.1f ms\n", tetris->velocidad_ms * 0.5f);
     printf("=====================\n");
+}
+
+//Pasar esta funcion a dibujar.h y .c
+void dibujar_filtro_pausa(uint8_t col)
+{
+    for(int x = 0; x < pantalla->ancho; x++)
+    {
+        for(int y = 0; y < pantalla->alto; y++)
+        {
+            if((x + y) % 2 == 0)
+            {
+                gbt_dibujar_pixel(x,y,col);
+            }
+        }
+    }
+
+}
+
+bool guardar_partida(const char* nombre_archivo)
+{
+    if(!tetris)
+    {
+        printf("Error: no tetris para guardar\n");
+        return false;
+    }
+    FILE* pf = fopen(nombre_archivo,"wb");
+
+    if(!pf)
+    {
+        printf("Error al crear el archivo\n");
+        return false;
+    }
+
+    PartidaGuardada save;
+
+    for(int y = 0; y < TABLERO_FILAS; y++)
+    {
+        for(int x = 0; x < TABLERO_COLS; x++)
+        {
+            save.matriz_tablero[y][x] = tetris->tablero.matriz[y][x];
+        }
+    }
+
+    save.Pieza = tetris->pieza;
+    save.cant_piezas = tetris->cant_piezas;
+    save.tipo_pieza = tetris->tipo_pieza;
+    save.puntos = tetris->puntos;
+    save.velocidad_ms = tetris->velocidad_ms;
+    save.modo_dx = tetris->modo_dx;
+
+    fwrite(&save,sizeof(PartidaGuardada),1,pf);
+    fclose(pf);
+
+    printf("Partida guardada\n");
+    return true;
+
+}
+
+bool cargar_partida(const char* nombre_archivo)
+{
+    FILE* pf = fopen(nombre_archivo,"rb");
+
+    if(!pf)
+    {
+        printf("No existe el archivo\n");
+        return false;
+    }
+
+    PartidaGuardada save;
+    fread(&save,sizeof(PartidaGuardada),1,pf);
+    fclose(pf);
+
+    for(int y = 0; y < TABLERO_FILAS; y++)
+    {
+        for(int x = 0; x < TABLERO_COLS; x++)
+        {
+            tetris->tablero.matriz[y][x] = save.matriz_tablero[y][x];
+        }
+    }
+
+    tetris->pieza = save.Pieza;
+    tetris->tipo_pieza = save.tipo_pieza;
+    tetris->puntos = save.puntos;
+    tetris->cant_piezas = save.cant_piezas;
+    tetris->velocidad_ms = save.velocidad_ms;
+    tetris->modo_dx = save.modo_dx;
+    tetris->en_pausa = true;
+    tetris->contador_frames = 0;
+    tetris->cont_fijacion = 0;
+    tetris->contacto = false;
+
+    tetris->umbral_frames = 30 * (tetris->velocidad_ms / 1000);
+
+    printf("Partida restaurada\n");
+    return true;
 }
