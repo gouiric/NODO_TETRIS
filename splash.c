@@ -18,24 +18,16 @@ void dibujar_splash(){
     dibujar_spr_porc(&C_letraR, 16, 16, 58, 10+offV, 3 * pantalla->escala_v);
     dibujar_spr_porc(&C_letraI, 16, 16, 69, 10+offV, 3 * pantalla->escala_v);
     dibujar_spr_porc(&C_letraS, 16, 16, 83, 10+offV, 3 * pantalla->escala_v);
+
+    dibujar_texto("Presiona cualquier tecla", 10, 75, 2, 3);
 }
 
 void loop_splash(){
     eGBT_Tecla tecla = gbt_obtener_tecla_presionada();
     if(tecla == GBTK_ESCAPE){
         contexto->corriendo = false;
-    }else if(tecla == GBTK_t){
-        printf("Pasando a escena Tetris\n");    //Temporal
-        cambiar_contexto(PANTALLA_TETRIS);
-    }
-    else if(tecla == GBTK_d)
-    {
-        printf("Pasando a escena deluxe\n");
-        cambiar_contexto(PANTALLA_DELUXE);
-    }
-    else if(tecla == GBTK_n)
-    {
-        printf("Pasando a escena nombre\n");
+    }else if(tecla != GBTK_DESCONOCIDA){
+        printf("Pasando a eleccion de nombre\n");
         cambiar_contexto(PANTALLA_NOMBRE);
     }
     //Animacion titulo

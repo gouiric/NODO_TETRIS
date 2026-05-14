@@ -5,8 +5,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include "graficos.h"
+#include <string.h>
 
 #define TAMANIO_MINO 4.0
+
+static int obtener_indice(char caracter);
+static int calcular_ancho_letra(uint8_t letra[8][8]);
 
 Pantalla* pantalla = NULL;
 
@@ -101,25 +105,77 @@ void dibujar_mino(uint8_t tab_x, uint8_t tab_y, uint8_t col)
 //
 // FUNCION CON VALORES HARDCOEADOS
 //
-void dibujar_texto(char* texto, int largoTexto, float porcXI, float porcYI, int escala, int col)
+
+///modificada
+void dibujar_texto(char* texto, float porcXI, float porcYI, int escala, int col)
 {
-    if(largoTexto == 0 || texto == NULL){
+    if(texto == NULL || *texto == '\0')
+    {
         printf("Texto vacio");
-        dibujar_texto("texto vacio", 12, 1, 1, 1, 1);
+        dibujar_texto("texto vacio", 1, 1, 1, 1);
         return;
     }
-    int posX = (int)round((8.0*escala/pantalla->ancho)*100);
-    //printf("posX:%d\n",posX);
+
     int actual;
-    //int posY = (8*escala/pantalla->alto)*100;
-    for(int i = 0; i < largoTexto; i++){
-        if(texto[i] >= 'a' && texto[i] <= 'z')
-            actual = texto[i] - 'a';
-        else if(texto[i] >= '0' && texto[i] <= '9')
-            actual = texto[i] - '0' + 26;
-        dibujar_spr_mono_porc(&fuente[actual][0][0], 8, 8, porcXI + (i * posX), porcYI, escala, col, 16);
+    float cursor_x = porcXI;
+
+    while(*texto)
+    {
+        actual = obtener_indice(*texto);
+        if(actual == ESPACIO)
+        {   // Definimos que un espacio en blanco mida 3 píxeles a la escala actual
+            cursor_x += (3.0f * escala / pantalla->ancho) * 100.0f;
+        }
+        else
+        {
+            dibujar_spr_mono_porc(&fuente[actual][0][0], 8, 8, cursor_x, porcYI, escala, col, 16);
+
+            int ancho_pixel = calcular_ancho_letra(fuente[actual]);
+            //Sumamos un pixel extra de separacion entre letras
+            int pixel_avanzar = ancho_pixel + 1;
+            //Convertimos los pixeles datos, en porcentaje y movemos el cursor_x
+            float avance_porc = ((float)pixel_avanzar * escala / pantalla->ancho) * 100.0f;
+            cursor_x += avance_porc;
+        }
+        texto++;
     }
 }
+
+int obtener_indice(char caracter)
+{
+    if(caracter >= 'A' && caracter <= 'Z')
+    {
+        return caracter - 'A';
+    }
+    if(caracter >= '0' && caracter <= '9')
+    {
+        return caracter - '0' + 26;
+    }
+    if(caracter >= 'a' && caracter <= 'z')
+    {
+        return caracter - 'a' + 36;
+    }
+
+    //Ojoooo con este return, Por el momento se asume que no hay caracteres invalidos
+    //Tener en cuenta que este return representa caracter == ' '
+    return ESPACIO;
+}
+
+int calcular_ancho_letra(uint8_t letra[8][8])
+{
+    // Recorremos las columnas desde la derecha (índice 7 bajando al 0)
+    for (int col = 7; col >= 0; col--) {
+        // Revisamos las 8 filas de esa columna
+        for (int fila = 0; fila < 8; fila++) {
+            if (letra[fila][col] == 1) {
+                // Encontramos el borde de la letra
+                // Le sumamos 1 porque los índices van de 0 a 7.
+                return col + 1;
+            }
+        }
+    }
+}
+
 
 void limpiar_helper_pantalla(){
     free(pantalla);
