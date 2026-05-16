@@ -3,6 +3,7 @@
 
 #include "tablero.h"
 #include "piezas.h"
+#include "tda_vector.h"
 #include <time.h>
 
 #define SENTIDO_ANTIHORARIO 0
@@ -29,6 +30,9 @@ typedef struct{
     bool contacto;
     bool modo_dx;
     bool en_pausa;
+    //Dos nuevos agregados para tener piezas totalmente aleatorias
+    Vector bolsa;
+    int indice_bolsa;
 }Tetris;
 
 //Por el momento lo creo aca
@@ -69,6 +73,11 @@ void actualizar_datos_tetris();
 bool perder();
 void procesar_impacto();
 void dibujar_filtro_pausa(uint8_t col);
+
+///Nueva logica para generar piezas aleatorias
+
+void rellenar_mezclar_bolsa();
+
 
 ///Logica para el archivo
 

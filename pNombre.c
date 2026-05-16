@@ -23,29 +23,42 @@ void dibujar_pantalla_nombre(){
 
 }
 
+///Por el momento solo toma nombres en minuscula, y por el momento no se acepta espacios
 void loop_pantalla_nombre(){
     eGBT_Tecla tecla = gbt_obtener_tecla_presionada();
+    char* pchar = contexto->nombreActual + contexto->tamanioNombre;
+    char letra;
+
     if(tecla == GBTK_ESCAPE){
         printf("Esto hay que sacarlo\n");
         cambiar_contexto(PANTALLA_SPLASH);
-    }else if(tecla == GBTK_RETROCESO)
-    {
-            if(contexto->tamanioNombre > 0){
-                contexto->nombreActual[contexto->tamanioNombre] = '\0';
-                contexto->tamanioNombre -= 1;
-                }
-    }else if(tecla != GBTK_DESCONOCIDA){
-        if(tecla >= GBTK_a && tecla <= GBTK_z){
-            char letra = tecla - GBTK_a + 'a';
-            printf("char:%c\n",letra);
-            contexto->nombreActual[contexto->tamanioNombre] = letra;
-            contexto->tamanioNombre++;
-        }else if(tecla == GBTK_ENTER && contexto->tamanioNombre > 0){
-            contexto->nombreActual[contexto->tamanioNombre] = '\0';
-            printf("Nombre: %s\n",contexto->nombreActual);
-            cambiar_contexto(PANTALLA_MENU);
-            printf("Pasando a menu\n");
-        }
-
     }
+    if( contexto->tamanioNombre < 10)
+    {
+        if(tecla >= GBTK_a && tecla <= GBTK_z)
+        {
+            letra = tecla - GBTK_a + 'a';
+            *pchar = letra;
+            pchar++;
+            contexto->tamanioNombre++;
+        }
+        if(tecla >= GBTK_0 && tecla <= GBTK_9)
+        {
+            letra = tecla - GBTK_0 + '0';
+            *pchar = letra;
+            pchar++;
+            contexto->tamanioNombre++;
+        }
+    }
+    if(tecla == GBTK_RETROCESO && contexto->tamanioNombre > 0)
+    {
+        pchar--;
+        contexto->tamanioNombre--;
+    }
+    if(tecla == GBTK_ENTER && contexto->tamanioNombre > 0)
+    {
+        cambiar_contexto(PANTALLA_MENU);
+        return;
+    }
+    *pchar = '\0';
 }

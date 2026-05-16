@@ -29,12 +29,18 @@ Tetris* inicializar_tetris(bool modo_dx){
         return NULL;
     }
 
+    ///Verificar la condicion de null y como eso afecta al tablero
+    VectorCrear(&tetris->bolsa);
+
+
     //aca porque si
     cargar_combinaciones_minos();
 
-    srand(time(NULL));
     tetris->modo_dx = modo_dx;
-    tetris->tipo_pieza = tetris->modo_dx ? rand()%11 : rand()%7;
+    //Cargamos las piezas en nuestra bolsa y las mezclamos
+    rellenar_mezclar_bolsa();
+    tetris->tipo_pieza = *(tetris->bolsa.vec + tetris->indice_bolsa);
+    tetris->indice_bolsa++;
     cargar_pieza(&tetris->pieza, tetris->tipo_pieza, rand()%16);
     tetris->puntos = 0;
     tetris->contador_frames = 0;
@@ -162,6 +168,7 @@ void limpiar_tetris()
 {
     if(!tetris)
         return;
+    VectorDestruir(&tetris->bolsa);
     destruir_tablero(&tetris->tablero,TABLERO_FILAS);
     free(tetris);
     tetris = NULL;
@@ -314,16 +321,16 @@ void calculo_puntos(int lineas_borradas)
 
 void obtener_nueva_pieza()
 {
-    int nueva_pieza;
+    if(tetris->indice_bolsa >= tetris->bolsa.ce)
+    {
+        VectorVaciar(&tetris->bolsa);
+        rellenar_mezclar_bolsa();
+    }
 
-    do{
-        nueva_pieza = tetris->modo_dx ? rand() % 11 :  rand()%7;
-    }while(tetris->tipo_pieza == nueva_pieza);
+    tetris->tipo_pieza = *(tetris->bolsa.vec + tetris->indice_bolsa);
+    tetris->indice_bolsa++;
 
-    tetris->tipo_pieza = nueva_pieza;
-
-    cargar_pieza(&tetris->pieza, tetris->tipo_pieza, rand() % 16 + 1);
-    //a
+    cargar_pieza(&tetris->pieza, tetris->tipo_pieza, rand() % 16);
 }
 
 void actualizar_datos_tetris()
@@ -464,4 +471,19 @@ bool cargar_partida(const char* nombre_archivo)
 
     printf("Partida restaurada\n");
     return true;
+}
+
+
+void rellenar_mezclar_bolsa()
+{
+    int cant_piezas = tetris->modo_dx ? 11 : 7;
+
+    for(int i = 0; i < cant_piezas; i++)
+    {
+        VectorCargarAlFinal(&tetris->bolsa,i);
+    }
+
+    VectorMezclarDatos(&tetris->bolsa);
+
+    tetris->indice_bolsa = 0;
 }

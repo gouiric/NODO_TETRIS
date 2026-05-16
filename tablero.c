@@ -62,13 +62,6 @@ void dibujar_tablero(Tablero* t, uint16_t offsetX, uint16_t offsetY)
                 dibujar_mino(x, y, t->matriz[y][x]);
 
             }
-            ///Si no, entonces le pasamos como color un gris claro (fijarse la paleta de colores en el main por las dudas)
-            else
-            {
-                //dibujar_rect(offsetX + (x * TAMANIO_BLOQUE), offsetY + (y * TAMANIO_BLOQUE),TAMANIO_BLOQUE -4, TAMANIO_BLOQUE-4, 8);
-
-            }
-
         }
     }
 }

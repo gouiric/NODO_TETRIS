@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include "dibujo.h"
 #include "opciones.h"
+#include <time.h>
 
 #define CANT_COLOR 16
 tGBT_ColorRGB color[16] = {
@@ -89,6 +90,7 @@ int main(int argc, char* argv[])
         printf("Error al crear memoria para funciones de pantalla\n");
         return -1;
     }
+    srand(time(NULL));
 
     //bucle principal
     while(contexto->corriendo == true){

@@ -114,13 +114,13 @@ void loop_opciones()
     {
         if(opcion_selec == 3)
         {
-            cambiar_contexto(PANTALLA_SPLASH);
+            cambiar_contexto(PANTALLA_MENU);
         }
         else if(opcion_selec == 4)
         {
             guardar_configuraciones(ARCHIVO_OP);
             aplicar_cambios_graficos();
-            cambiar_contexto(PANTALLA_SPLASH);
+            cambiar_contexto(PANTALLA_MENU);
         }
     }
 }

@@ -56,13 +56,12 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="opciones.h" />
-<<<<<<< HEAD
-=======
+
 		<Unit filename="pMenu.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="pMenu.h" />
->>>>>>> 28754bf1d6a2256edb4a390c9029d0c0b423a65c
+
 		<Unit filename="pNombre.c">
 			<Option compilerVar="CC" />
 		</Unit>
