@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "dibujo.h"
 
-#define TAMANIO_NOMBRE 128
+#define TAMANIO_NOMBRE 10
 
 #define ARCHIVO_OP "opciones.bin"
 

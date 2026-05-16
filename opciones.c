@@ -65,6 +65,7 @@ void dibujar_opciones()
 {
     limpiar(0);
 
+    dibujar_fondo();
 
     dibujar_texto("Menu Opciones",28,2,2*pantalla->escala_v,11);
 
@@ -114,13 +115,13 @@ void loop_opciones()
     {
         if(opcion_selec == 3)
         {
-            cambiar_contexto(PANTALLA_SPLASH);
+            cambiar_contexto(PANTALLA_MENU);
         }
         else if(opcion_selec == 4)
         {
             guardar_configuraciones(ARCHIVO_OP);
             aplicar_cambios_graficos();
-            cambiar_contexto(PANTALLA_SPLASH);
+            cambiar_contexto(PANTALLA_MENU);
         }
     }
 }

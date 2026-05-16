@@ -13,30 +13,12 @@ int pos_puntero = 0;
 void loopDibujoMenu(){
     limpiar(0);
 
-    //
-    // Bucle para dibujar fondo de ladrillos
-    for(int i = 0; i < pantalla->tilesX; i++){
-        for(int j = 0; j < pantalla->tilesY; j++){
-            int tip = (i+j)%2;
+    dibujar_fondo();
 
-            int ladrilloX;
-            if((j%2)==0)
-                ladrilloX = i / 2;
-            else
-                ladrilloX = (i + 1) / 2;
-
-            int ruido =(ladrilloX * 73856093) ^ (j * 19349663);
-
-            if((ruido%8) == 0)
-                dibujar_spr_mono_porc(*ladri[tip], 6, 6, i * pantalla->pasoX, j * pantalla->pasoY, 3, 10, 2);
-            else
-                dibujar_spr_mono_porc(*ladri[tip], 6, 6, i * pantalla->pasoX, j * pantalla->pasoY, 3, 1, 9);
-        }
-    }
     char text[50];
     sprintf(text, "Bienvenido %s", contexto->nombreActual);
-    dibujar_texto(text, 9, 11, 2, 8);
-    dibujar_texto(text, 10, 10, 2, 7);
+    dibujar_texto(text, 10.5, 10.5, 2, 1);
+    dibujar_texto(text, 10, 10, 2, 2);
 
     //Menu
     char tMenu[CANTIDAD_ELEMENTOS_MENU][20] = {"JUGAR","DELUXE" , "OPCIONES", "SALIR"};
@@ -48,11 +30,11 @@ void loopDibujoMenu(){
         else
             sprintf(linea, "  %s", tMenu[i]);
 
-        dibujar_texto(linea, CENTRADO + 1, 46 + (i * 10), 2, 8);
-        dibujar_texto(linea, CENTRADO, 45 + (i * 10), 2, 7);
+        dibujar_texto(linea, CENTRADO + 0.5f, 46 + (i * 10), 2, 1);
+        dibujar_texto(linea, CENTRADO, 45 + (i * 10), 2, 2);
     }
 
-    dibujar_texto("®NODO 2026", 0, 95, 1, 7);
+    dibujar_texto("®NODO 2026", 0, 95, 1, 2);
 }
 
 void loopLogicaMenu(){

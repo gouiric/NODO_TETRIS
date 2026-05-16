@@ -35,7 +35,9 @@ Tetris* inicializar_tetris(bool modo_dx){
     srand(time(NULL));
     tetris->modo_dx = modo_dx;
     tetris->tipo_pieza = tetris->modo_dx ? rand()%11 : rand()%7;
-    cargar_pieza(&tetris->pieza, tetris->tipo_pieza, rand()%16);
+    int variante = rand() % 4;
+    int textura = (variante * 7) + (tetris->tipo_pieza % 7);
+    cargar_pieza(&tetris->pieza, tetris->tipo_pieza, textura+1);
     tetris->puntos = 0;
     tetris->contador_frames = 0;
     tetris->velocidad_ms = obtener_velocidad_actual_ms();
@@ -50,9 +52,15 @@ Tetris* inicializar_tetris(bool modo_dx){
 void loop_dibujar_tetris()
 {
     limpiar(7);
-    dibujar_rect(pantalla->tab_offsetX, pantalla->tab_offsetY, pantalla->tam_tabX-1, pantalla->tam_tabY-1, 0);
+    dibujar_fondo();
+    dibujar_rect(pantalla->tab_offsetX, pantalla->tab_offsetY, pantalla->tam_tabX-1, pantalla->tam_tabY-1, 1);
     dibujar_tablero(&tetris->tablero, (320 - (TABLERO_COLS * TAMANIO_BLOQUE)) / 2, 4);
     dibujar_pieza(&tetris->pieza, (320 - (TABLERO_COLS * TAMANIO_BLOQUE)) / 2, 4, tetris->modo_dx);
+
+    //Debug
+    char textoD[20];
+    sprintf(textoD,"Pieza actual:%d",tetris->pieza.color);
+    dibujar_texto(textoD, 0, 0, 2, 1);
 
     //Dibujar puntos
     int origen_cuadroX = pantalla->tab_offsetX + pantalla->tam_tabX + 10;
@@ -263,7 +271,12 @@ void obtener_nueva_pieza()
 
     tetris->tipo_pieza = nueva_pieza;
 
-    cargar_pieza(&tetris->pieza, tetris->tipo_pieza, rand() % 16 + 1);
+    int variante = rand() % 4;
+    int textura = (variante * 7) + (nueva_pieza % 7);
+
+    printf("Generada pieza %d, con textura %d\n",nueva_pieza,textura);
+
+    cargar_pieza(&tetris->pieza, tetris->tipo_pieza, textura + 1);
     //a
 }
 

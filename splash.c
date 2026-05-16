@@ -7,7 +7,8 @@
 
 void dibujar_splash(){
     limpiar(7);
-    dibujar_rect(0, porc_a_pixel(60, pantalla->alto), pantalla->ancho, porc_a_pixel(40, pantalla->alto), 8);
+    dibujar_fondo();
+    //dibujar_rect(0, porc_a_pixel(60, pantalla->alto), pantalla->ancho, porc_a_pixel(40, pantalla->alto), 8);
     //dibujar logo
     int offV = 0;
     if(pantalla->escala_v == 2)

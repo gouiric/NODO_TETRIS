@@ -56,7 +56,7 @@ extern uint8_t fuente[65][8][8];
 
 //Minos
 extern uint8_t minosTex[4][4][4];
-extern uint8_t minosComb[16][4][4];
+extern uint8_t minosComb[28][4][4];
 
 //diseños
 extern uint8_t ladri[2][6][6];

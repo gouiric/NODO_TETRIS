@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "GBT/gbt_entrada.h"
+#include "dibujo.h"
 #include "splash.h"
 #include <stdio.h>
 #include <string.h>
@@ -10,6 +11,7 @@
 #include "graficos.h"
 #include "opciones.h"
 #include "pMenu.h"
+#include <time.h>
 
 Context* contexto = NULL;
 
@@ -64,6 +66,7 @@ void cambiar_contexto(eEstadoJuego siguienteEstado){
     if(contexto->estadoActual == PANTALLA_TETRIS || contexto->estadoActual == PANTALLA_DELUXE){
         limpiar_tetris();
     }
+    semilla_fondo(time(NULL));
     if(siguienteEstado != contexto->estadoActual){
         contexto->estadoActual = siguienteEstado;
         switch(siguienteEstado){

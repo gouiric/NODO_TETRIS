@@ -19,15 +19,19 @@ typedef struct{
     int tilesX;
     int tilesY;
     float pasoX;
-    float pasoY
+    float pasoY;
+    double time;
 }Pantalla;
 
 Pantalla* inicializar_helper_dibujo(int ancho, int alto, int escala_v);
 
 extern Pantalla* pantalla;
 
+void semilla_fondo(double);
+
 void dibujar_rect(int x, int y, int w, int h, uint8_t col);
 void limpiar(uint8_t col);
+void dibujar_fondo();
 
 int porc_a_pixel(float porc, int tam);
 

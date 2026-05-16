@@ -39,6 +39,10 @@ Pantalla* inicializar_helper_dibujo(int ancho, int alto, int escala_v){
     return pantalla;
 }
 
+void semilla_fondo(double time){
+    pantalla->time = time;
+}
+
 void dibujar_rect(int x, int y, int w, int h, uint8_t col){
     for(int i = x; i <= x + w; i++){
         for(int j = y; j <= y + h; j++){
@@ -49,6 +53,29 @@ void dibujar_rect(int x, int y, int w, int h, uint8_t col){
 
 void limpiar(uint8_t col){
     gbt_borrar_backbuffer(col);
+}
+
+void dibujar_fondo(){
+    //
+    // Bucle para dibujar fondo de ladrillos
+    for(int i = 0; i < pantalla->tilesX; i++){
+        for(int j = 0; j < pantalla->tilesY; j++){
+            int tip = (i+j)%2;
+
+            int ladrilloX;
+            if((j%2)==0)
+                ladrilloX = i / 2;
+            else
+                ladrilloX = (i + 1) / 2;
+
+            int ruido =((ladrilloX * 73856093) ^ (j * 19349663)) ^ ((int)pantalla->time * 1000003);
+
+            if((ruido%8) == 0)
+                dibujar_spr_mono_porc(*ladri[tip], 6, 6, i * pantalla->pasoX, j * pantalla->pasoY, 3, 6, 7);
+            else
+                dibujar_spr_mono_porc(*ladri[tip], 6, 6, i * pantalla->pasoX, j * pantalla->pasoY, 3, 4, 5);
+        }
+    }
 }
 
 int porc_a_pixel(float porc, int tam){
@@ -150,7 +177,7 @@ void dibujar_texto(char* texto, float porcXI, float porcYI, int escala, int col)
         }
         else
         {
-            dibujar_spr_mono_porc(&fuente[actual][0][0], 8, 8, cursor_x, porcYI, escala, col, 16);
+            dibujar_spr_mono_porc(&fuente[actual][0][0], 8, 8, cursor_x, porcYI, escala, col, 29);
 
             int ancho_pixel = calcular_ancho_letra(fuente[actual]);
             //Sumamos un pixel extra de separacion entre letras

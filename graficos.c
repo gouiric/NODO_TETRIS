@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 uint8_t M_letraT[16][16] =
 {
@@ -386,46 +387,50 @@ uint8_t ladri[2][6][6] = {  {{1,1,1,1,1,1},{1,0,0,0,0,0},{1,0,0,0,0,0},{1,0,0,0,
 uint8_t minosTex[4][4][4] =
 {
     {   {1,1,1,1},
-        {1,0,1,1},
-        {1,1,0,1},
+        {1,0,2,1},
+        {1,2,0,1},
         {1,1,1,1}
     },
     {
-        {1,1,1,1},
-        {1,0,0,1},
-        {1,0,0,1},
-        {1,1,1,1}
+        {0,0,0,0},
+        {0,1,1,0},
+        {0,1,1,2},
+        {0,0,2,2}
     },
     {
-        {1,0,1,0},
-        {0,1,0,1},
-        {1,0,1,0},
-        {0,1,0,1}
+        {1,2,1,2},
+        {2,1,0,1},
+        {1,0,1,2},
+        {2,1,2,1}
     },
     {
         {0,1,0,1},
-        {1,0,1,0},
-        {0,1,0,1},
+        {1,2,1,0},
+        {0,1,2,1},
         {1,0,1,0}
     }
 };
 
-uint8_t minosComb[16][4][4] = {};
+uint8_t minosComb[28][4][4] = {};
 
 void cargar_combinaciones_minos()
 {
-
-    int coloresFG[4] = {1, 2, 4, 14};
-    int coloresBG[4] = {9, 10, 5, 6};
+    //orden IOTLJSZ
+    int coloresB[7] = {9, 18, 27, 15, 12, 21, 24};
+    int coloresS[7] = {8, 17, 26, 14, 11, 20, 23};
+    int coloresH[7] = {10, 19, 28, 16, 13, 22, 25};
     for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++)
+        for(int j = 0; j < 7; j++)
         {
+            printf("Generando textura para posicion de memoria %d\n",i*7+j);
             for(int x = 0; x < 4; x++){
                 for(int y = 0; y < 4; y++){
                     if(minosTex[i][x][y] == 1)
-                        minosComb[i*4+j][x][y] = coloresFG[j];
+                        minosComb[i*7+j][x][y] = coloresS[j];
+                    else if(minosTex[i][x][y] == 2)
+                        minosComb[i*7+j][x][y] = coloresH[j];
                     else
-                     minosComb[i*4+j][x][y] = coloresBG[j];
+                        minosComb[i*7+j][x][y] = coloresB[j];
                 }
             }
         }
@@ -434,27 +439,27 @@ void cargar_combinaciones_minos()
 
 car16 C_letraT = {
     .mapa = M_letraT,
-    .colores = {15, 0, 4, 12}
+    .colores = {0, 1, 9, 8}
 };
 
 car16 C_letraE = {
     .mapa = M_letraE,
-    .colores = {15, 0, 3, 6}
+    .colores = {0, 1, 12, 11}
 };
 
 car16 C_letraR = {
     .mapa = M_letraR,
-    .colores = {15, 0, 5, 13}
+    .colores = {0, 1, 15, 14}
 };
 
 car16 C_letraI = {
     .mapa = M_letraI,
-    .colores = {15, 0, 11, 14}
+    .colores = {0, 1, 9, 8}
 };
 
 car16 C_letraS = {
     .mapa = M_letraS,
-    .colores = {15, 0, 6, 12}
+    .colores = {0, 1, 12, 11}
 };
 
 void rotar_paletas_c16(car16** listaSpr, int cant){
