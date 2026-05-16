@@ -25,6 +25,17 @@ Pantalla* inicializar_helper_dibujo(int ancho, int alto, int escala_v){
     pantalla->alto = alto;
     pantalla-> escala_v = escala_v;
 
+    //
+    // patron de dibujo
+    //
+    int esc = 3;
+    int tileW = 6 * esc;
+    int tileH = 6 * esc;
+    pantalla->pasoX = (tileW/(float)pantalla->ancho)*100.0f;
+    pantalla->pasoY = (tileH/(float)pantalla->alto)*100.0f;
+    pantalla->tilesX = pantalla->ancho / tileW + 1;
+    pantalla->tilesY = pantalla->alto / tileH + 1;
+
     return pantalla;
 }
 
@@ -117,13 +128,14 @@ void dibujar_texto(char* texto, float porcXI, float porcYI, int escala, int col)
         return;
     }
 
-    if(porcXI < 0)
+    if(porcXI < 0 && porcXI >= CENTRADO)
     {
         float ancho_px = calcular_ancho_texto(texto, escala);
 
         float ancho_porc = (ancho_px / pantalla->ancho) * 100.0f;
 
-        porcXI = 50.0f - (ancho_porc / 2.0f);
+        float offset = CENTRADO - porcXI;
+        porcXI = 50.0f - (ancho_porc / 2.0f) + offset;
     }
 
     int actual;

@@ -4,7 +4,7 @@
 #include "graficos.h"
 
 #define ESPACIO -1
-
+#define CENTRADO -1000
 
 
 typedef struct{
@@ -16,6 +16,10 @@ typedef struct{
     int mino_tamanio;
     int tam_tabX;
     int tam_tabY;
+    int tilesX;
+    int tilesY;
+    float pasoX;
+    float pasoY
 }Pantalla;
 
 Pantalla* inicializar_helper_dibujo(int ancho, int alto, int escala_v);

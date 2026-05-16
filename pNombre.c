@@ -14,10 +14,9 @@ void dibujar_pantalla_nombre(){
     // REEMPLAZAR POR UNA FUNCION MEJOR
     // VINO LA FUNCION MEJOR
     dibujar_texto("escribe tu nombre", 10, 10, 2 * pantalla->escala_v, 0);
-    int largo = (int)round((8.0*pantalla->escala_v/pantalla->ancho)*100);
     if(contexto->tamanioNombre > 0)
     {
-        dibujar_texto(contexto->nombreActual, 50 - (largo * contexto->tamanioNombre), 40, 3, 0);
+        dibujar_texto(contexto->nombreActual, CENTRADO, 40, 3, 0);
     }
 
 

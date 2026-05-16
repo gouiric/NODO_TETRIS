@@ -58,6 +58,9 @@ extern uint8_t fuente[65][8][8];
 extern uint8_t minosTex[4][4][4];
 extern uint8_t minosComb[16][4][4];
 
+//diseños
+extern uint8_t ladri[2][6][6];
+
 void cargar_combinaciones_minos();
 
 //Sprite 16x16 con paleta 4 colores
