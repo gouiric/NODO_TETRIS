@@ -10,6 +10,8 @@
 #include "graficos.h"
 #include "opciones.h"
 
+#include "pMenu.h"
+
 Context* contexto = NULL;
 
 Context* inicializar_contexto(){
@@ -46,6 +48,10 @@ Context* inicializar_contexto(){
     contexto->escenaOpciones.dibujar_escena = dibujar_opciones;
     contexto->escenaOpciones.loop_escena = loop_opciones;
 
+    //Relacionado a pantalla menu
+    contexto->escenaMenu.dibujar_escena = loopDibujoMenu;
+    contexto->escenaMenu.loop_escena = loopLogicaMenu;
+
     return contexto;
 }
 
@@ -73,7 +79,7 @@ void cambiar_contexto(eEstadoJuego siguienteEstado){
                 contexto->escenaActual = &contexto->escenaNombre;
                 break;
             case PANTALLA_MENU:
-                //contexto->escenaActual = ;
+                contexto->escenaActual = &contexto->escenaMenu;
                 break;
             case PANTALLA_TETRIS:
                 if(!inicializar_tetris(false)){

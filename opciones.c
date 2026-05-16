@@ -48,7 +48,7 @@ bool cargar_crear_archivo(const char* nombre_archivo)
         config_actual.paleta_elegida = 0;
         config_actual.resolucion_elegida = 0;
         config_actual.velocidad_elegida = 0;
-        config_actual.escala_ventana = 1;
+        config_actual.escala_ventana = 2;
 
         return guardar_configuraciones(nombre_archivo);
     }

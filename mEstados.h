@@ -7,6 +7,8 @@
 
 #define ARCHIVO_OP "opciones.bin"
 
+#define ARCHIVO_OP "opciones.bin"
+
 typedef enum{
     PANTALLA_SPLASH,
     PANTALLA_NOMBRE,
@@ -34,6 +36,7 @@ typedef struct{
     Escena escenaNombre;
     Escena escenaTetris;
     Escena escenaOpciones;
+    Escena escenaMenu;
     Escena *escenaActual;
     char nombreActual[TAMANIO_NOMBRE]; //nose si esto deberia ir aca
     int tamanioNombre;

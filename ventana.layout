@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="tetris.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="230" topLine="10" />
@@ -87,4 +88,6 @@
 			<Cursor1 position="811" topLine="7" />
 		</Cursor>
 	</File>
+=======
+>>>>>>> 28754bf1d6a2256edb4a390c9029d0c0b423a65c
 </CodeBlocks_layout_file>

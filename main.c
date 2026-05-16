@@ -68,6 +68,7 @@ int main(int argc, char* argv[])
         return -1;
     }
     char nombreVentana[128];
+    sprintf(nombreVentana,"Tetris_NODO");
     if(gbt_crear_ventana(nombreVentana, ANCHO_VENTANA, ALTO_VENTANA, ESCALA_VENTANA) != 0){
         fprintf(stderr, "Error al crear ventana: %s", gbt_obtener_log());
         return -1;

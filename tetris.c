@@ -8,7 +8,9 @@
 #include "opciones.h"
 #include <stdio.h>
 
-
+int framesTecla = 0;
+int framesAbajo = 0;
+eGBT_Tecla ultimaTecla;
 
 Tetris* tetris = NULL;
 
@@ -108,8 +110,8 @@ void loop_logica_tetris()
 
     if(tecla == GBTK_ESCAPE)
     {
-        printf("Volver a pantalla inicial\n");
-        cambiar_contexto(PANTALLA_SPLASH);
+        //printf("Volver a pantalla inicial\n");    Ahora vuelve al menu
+        cambiar_contexto(PANTALLA_MENU);
         return;
     }
     if(tecla == GBTK_s)
@@ -150,7 +152,7 @@ void loop_logica_tetris()
 
     if(perder())
     {
-       cambiar_contexto(PANTALLA_SPLASH);
+       cambiar_contexto(PANTALLA_MENU);
        return;
     }
 
@@ -203,12 +205,39 @@ void mover_pieza(eGBT_Tecla tecla)
     int x = 0;
     int y = 0;
 
-    if(tecla == GBTK_DERECHA)
-        x = 1;
-    else if(tecla == GBTK_IZQUIERDA)
-        x = -1;
-    else if(tecla == GBTK_ABAJO)
-        y = 1;
+    if(gbt_tecla_sostenida(GBTK_DERECHA))
+    {
+        if(ultimaTecla != GBTK_DERECHA){
+            ultimaTecla = GBTK_DERECHA;
+            framesTecla = 0;
+        }
+        if(framesTecla == 0)
+            x=1;
+        framesTecla++;
+        if(framesTecla>9)
+            framesTecla=0;
+    }else if(gbt_tecla_sostenida(GBTK_IZQUIERDA))
+    {
+        if(ultimaTecla != GBTK_IZQUIERDA){
+            ultimaTecla = GBTK_IZQUIERDA;
+            framesTecla = 0;
+        }
+        if(framesTecla == 0)
+            x=-1;
+        framesTecla++;
+        if(framesTecla>9)
+            framesTecla=0;
+    }else
+        framesTecla = 0;
+
+    if(gbt_tecla_sostenida(GBTK_ABAJO))
+    {
+        if(framesAbajo==0)
+            y=1;
+        framesAbajo++;
+        if(framesAbajo>9)
+            framesAbajo=0;
+    }
 
     if(x != 0 || y != 0)
     {
