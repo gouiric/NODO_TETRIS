@@ -135,6 +135,24 @@ void loop_logica_tetris()
         printf("Estoy en pausa\n");
         return;
     }
+    if(tecla == GBTK_s)
+    {
+        if(guardar_partida("partida.bin"))
+        {
+            cambiar_contexto(PANTALLA_SPLASH);
+            return;
+        }
+    }
+    if(tecla == GBTK_p)
+    {
+        tetris->en_pausa = !tetris->en_pausa;
+        printf("Tecla P apretada\n");
+    }
+    if(tetris->en_pausa)
+    {
+        printf("Estoy en pausa\n");
+        return;
+    }
     if(tecla == GBTK_x)
     {
         rotar_pieza_activa(SENTIDO_HORARIO);
