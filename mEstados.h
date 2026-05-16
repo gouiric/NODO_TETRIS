@@ -36,7 +36,7 @@ typedef struct{
     Escena escenaOpciones;
     Escena escenaMenu;
     Escena *escenaActual;
-    char nombreActual[TAMANIO_NOMBRE]; //nose si esto deberia ir aca
+    char nombreActual[10]; //Por el momento determinamos un rango "alto"
     int tamanioNombre;
 }Context;
 

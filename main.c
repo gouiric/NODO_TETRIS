@@ -104,6 +104,7 @@ int main(int argc, char* argv[])
         printf("Error al crear memoria para funciones de pantalla\n");
         return -1;
     }
+    srand(time(NULL));
 
     semilla_fondo(time(NULL));
     //bucle principal

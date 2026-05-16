@@ -3,6 +3,7 @@
 #include "GBT/gbt_entrada.h"
 #include "dibujo.h"
 #include "graficos.h"
+#include "piezas.h"
 #include "tablero.h"
 #include "mEstados.h"
 #include "opciones.h"
@@ -29,12 +30,17 @@ Tetris* inicializar_tetris(bool modo_dx){
         return NULL;
     }
 
+    ///Verificar la condicion de null y como eso afecta al tablero
+    VectorCrear(&tetris->bolsa);
+
+
     //aca porque si
     cargar_combinaciones_minos();
 
-    srand(time(NULL));
     tetris->modo_dx = modo_dx;
-    tetris->tipo_pieza = tetris->modo_dx ? rand()%11 : rand()%7;
+    rellenar_mezclar_bolsa();
+    tetris->tipo_pieza = *(tetris->bolsa.vec + tetris->indice_bolsa);
+    tetris->indice_bolsa++;
     int variante = rand() % 4;
     int textura = (variante * 7) + (tetris->tipo_pieza % 7);
     cargar_pieza(&tetris->pieza, tetris->tipo_pieza, textura+1);
@@ -183,6 +189,7 @@ void limpiar_tetris()
 {
     if(!tetris)
         return;
+    VectorDestruir(&tetris->bolsa);
     destruir_tablero(&tetris->tablero,TABLERO_FILAS);
     free(tetris);
     tetris = NULL;
@@ -335,18 +342,17 @@ void calculo_puntos(int lineas_borradas)
 
 void obtener_nueva_pieza()
 {
-    int nueva_pieza;
+    if(tetris->indice_bolsa >= tetris->bolsa.ce)
+    {
+        VectorVaciar(&tetris->bolsa);
+        rellenar_mezclar_bolsa();
+    }
 
-    do{
-        nueva_pieza = tetris->modo_dx ? rand() % 11 :  rand()%7;
-    }while(tetris->tipo_pieza == nueva_pieza);
-
-    tetris->tipo_pieza = nueva_pieza;
+    tetris->tipo_pieza = *(tetris->bolsa.vec + tetris->indice_bolsa);
+    tetris->indice_bolsa++;
 
     int variante = rand() % 4;
-    int textura = (variante * 7) + (nueva_pieza % 7);
-
-    printf("Generada pieza %d, con textura %d\n",nueva_pieza,textura);
+    int textura = (variante * 7) + (tetris->tipo_pieza % 7);
 
     cargar_pieza(&tetris->pieza, tetris->tipo_pieza, textura + 1);
     //a
@@ -490,4 +496,19 @@ bool cargar_partida(const char* nombre_archivo)
 
     printf("Partida restaurada\n");
     return true;
+}
+
+
+void rellenar_mezclar_bolsa()
+{
+    int cant_piezas = tetris->modo_dx ? 11 : 7;
+
+    for(int i = 0; i < cant_piezas; i++)
+    {
+        VectorCargarAlFinal(&tetris->bolsa,i);
+    }
+
+    VectorMezclarDatos(&tetris->bolsa);
+
+    tetris->indice_bolsa = 0;
 }

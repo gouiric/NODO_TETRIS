@@ -23,6 +23,7 @@ void dibujar_pantalla_nombre(){
 
 }
 
+///Por el momento solo toma nombres en minuscula, y por el momento no se acepta espacios
 void loop_pantalla_nombre(){
     eGBT_Tecla tecla = gbt_obtener_tecla_presionada();
     char* pchar = contexto->nombreActual + contexto->tamanioNombre;
