@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "GBT/gbt_entrada.h"
 #include "dibujo.h"
+#include "sonido.h"
 #include "splash.h"
 #include <stdio.h>
 #include <string.h>
@@ -65,6 +66,7 @@ void correr(){
 void cambiar_contexto(eEstadoJuego siguienteEstado){
     if(contexto->estadoActual == PANTALLA_TETRIS || contexto->estadoActual == PANTALLA_DELUXE){
         limpiar_tetris();
+        audio_stop_loop();
     }
     semilla_fondo(time(NULL));
     if(siguienteEstado != contexto->estadoActual){

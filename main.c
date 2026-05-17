@@ -6,6 +6,7 @@
 #include "dibujo.h"
 #include "opciones.h"
 #include <time.h>
+#include "sonido.h"
 
 #define CANT_COLOR 30
 tGBT_ColorRGB color[30] = {
@@ -104,6 +105,7 @@ int main(int argc, char* argv[])
         printf("Error al crear memoria para funciones de pantalla\n");
         return -1;
     }
+    audio_init();
     srand(time(NULL));
 
     semilla_fondo(time(NULL));
@@ -121,6 +123,7 @@ int main(int argc, char* argv[])
     limpiar_helper_pantalla();
     gbt_destruir_ventana();
     gbt_cerrar();
+    audio_clean();
 
     return 0;
 }

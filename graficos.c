@@ -422,7 +422,7 @@ void cargar_combinaciones_minos()
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 7; j++)
         {
-            printf("Generando textura para posicion de memoria %d\n",i*7+j);
+            //printf("Generando textura para posicion de memoria %d\n",i*7+j);
             for(int x = 0; x < 4; x++){
                 for(int y = 0; y < 4; y++){
                     if(minosTex[i][x][y] == 1)

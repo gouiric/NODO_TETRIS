@@ -4,6 +4,7 @@
 #include "dibujo.h"
 #include "graficos.h"
 #include "piezas.h"
+#include "sonido.h"
 #include "tablero.h"
 #include "mEstados.h"
 #include "opciones.h"
@@ -52,6 +53,8 @@ Tetris* inicializar_tetris(bool modo_dx){
     tetris->cont_fijacion = 0;
     tetris->contacto = false;
     tetris->en_pausa = false;
+
+    audio_select_loop("./korobeiniki.wav");
 
     return tetris;
 }
@@ -133,6 +136,7 @@ void loop_logica_tetris()
     }
     if(tecla == GBTK_p)
     {
+        audio_switch_loop();
         tetris->en_pausa = !tetris->en_pausa;
         printf("Tecla P apretada\n");
     }
