@@ -1,0 +1,558 @@
+# depslib dependency file v1.0
+1777169330 source:c:\users\saave\onedrive\documentos\devel\ventana\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"splash.h"
+	"dibujo.h"
+
+1777169499 c:\users\saave\onedrive\documentos\devel\ventana\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1777168678 source:c:\users\saave\onedrive\documentos\devel\ventana\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	<stdint.h>
+
+1777168403 c:\users\saave\onedrive\documentos\devel\ventana\dibujo.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777169674 source:c:\users\saave\onedrive\documentos\devel\ventana\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1776646998 c:\users\saave\onedrive\documentos\devel\ventana\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777168577 c:\users\saave\onedrive\documentos\devel\ventana\splash.h
+	"dibujo.h"
+
+1777169422 source:c:\users\saave\onedrive\documentos\devel\ventana\splash.c
+	"splash.h"
+	"dibujo.h"
+
+1778673604 source:c:\users\lucas\nodo_tetris\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+	"opciones.h"
+
+1777348846 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777348846 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777348846 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777348846 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777348846 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777348846 c:\users\lucas\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1778645583 c:\users\lucas\nodo_tetris\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1778659893 c:\users\lucas\nodo_tetris\dibujo.h
+	<stdint.h>
+	"graficos.h"
+
+1778642872 c:\users\lucas\nodo_tetris\graficos.h
+	<stdint.h>
+	<stdbool.h>
+
+1778660134 source:c:\users\lucas\nodo_tetris\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"graficos.h"
+	<string.h>
+
+1778673408 source:c:\users\lucas\nodo_tetris\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"GBT/gbt_entrada.h"
+	"splash.h"
+	<stdio.h>
+	<string.h>
+	"pNombre.h"
+	"tetris.h"
+	"graficos.h"
+	"opciones.h"
+
+1777348846 c:\users\lucas\nodo_tetris\splash.h
+	"dibujo.h"
+	"mEstados.h"
+
+1777348846 c:\users\lucas\nodo_tetris\pnombre.h
+
+1777577441 c:\users\lucas\nodo_tetris\tetris.h
+	"tablero.h"
+	"piezas.h"
+	<time.h>
+
+1777578236 c:\users\lucas\nodo_tetris\tablero.h
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<GBT/gbt.h>
+	"piezas.h"
+	"dibujo.h"
+
+1778642872 c:\users\lucas\nodo_tetris\piezas.h
+	<stdint.h>
+	<stdbool.h>
+	<GBT/gbt.h>
+
+1778642872 source:c:\users\lucas\nodo_tetris\piezas.c
+	"piezas.h"
+	"tablero.h"
+
+1778655781 source:c:\users\lucas\nodo_tetris\pnombre.c
+	"pNombre.h"
+	"dibujo.h"
+	"pNombre.h"
+	"graficos.h"
+	"GBT/gbt_entrada.h"
+	"mEstados.h"
+	<math.h>
+	<stdio.h>
+
+1778645773 source:c:\users\lucas\nodo_tetris\splash.c
+	"splash.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"graficos.h"
+
+1778642872 source:c:\users\lucas\nodo_tetris\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<stdio.h>
+	"dibujo.h"
+
+1778668043 source:c:\users\lucas\nodo_tetris\tetris.c
+	"tetris.h"
+	<stdlib.h>
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"graficos.h"
+	"tablero.h"
+	"mEstados.h"
+	"opciones.h"
+	<stdio.h>
+
+1778643615 source:c:\users\lucas\nodo_tetris\graficos.c
+	"graficos.h"
+	<stdint.h>
+	<string.h>
+	<stdbool.h>
+
+1778673521 source:c:\users\lucas\nodo_tetris\opciones.c
+	"opciones.h"
+	"GBT/gbt_entrada.h"
+	"stdio.h"
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"dibujo.h"
+	<string.h>
+
+1778673690 c:\users\lucas\nodo_tetris\opciones.h
+	"dibujo.h"
+	"mEstados.h"
+
+1778904551 source:c:\users\saave\documents\devel\nodo_tetris\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"graficos.h"
+	<string.h>
+
+1778904416 c:\users\saave\documents\devel\nodo_tetris\dibujo.h
+	<stdint.h>
+	"graficos.h"
+
+1778902804 c:\users\saave\documents\devel\nodo_tetris\graficos.h
+	<stdint.h>
+	<stdbool.h>
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778902932 source:c:\users\saave\documents\devel\nodo_tetris\graficos.c
+	"graficos.h"
+	<stdint.h>
+	<string.h>
+	<stdbool.h>
+
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"GBT/gbt_entrada.h"
+	"splash.h"
+	<stdio.h>
+	<string.h>
+	"pNombre.h"
+	"tetris.h"
+	"graficos.h"
+	"opciones.h"
+	"pMenu.h"
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\splash.h
+	"dibujo.h"
+	"mEstados.h"
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\pnombre.h
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\tetris.h
+	"tablero.h"
+	"piezas.h"
+	<time.h>
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\tablero.h
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<GBT/gbt.h>
+	"piezas.h"
+	"dibujo.h"
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\piezas.h
+	<stdint.h>
+	<stdbool.h>
+	<GBT/gbt.h>
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\opciones.h
+	"dibujo.h"
+	"mEstados.h"
+
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\opciones.c
+	"opciones.h"
+	"GBT/gbt_entrada.h"
+	"stdio.h"
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"dibujo.h"
+	<string.h>
+
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\piezas.c
+	"piezas.h"
+	"tablero.h"
+
+1778741663 source:c:\users\saave\documents\devel\nodo_tetris\pnombre.c
+	"pNombre.h"
+	"dibujo.h"
+	"pNombre.h"
+	"graficos.h"
+	"GBT/gbt_entrada.h"
+	"mEstados.h"
+	<math.h>
+	<stdio.h>
+
+1778737135 source:c:\users\saave\documents\devel\nodo_tetris\splash.c
+	"splash.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"graficos.h"
+
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<stdio.h>
+	"dibujo.h"
+
+1778740587 source:c:\users\saave\documents\devel\nodo_tetris\tetris.c
+	"tetris.h"
+	<stdlib.h>
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"graficos.h"
+	"tablero.h"
+	"mEstados.h"
+	"opciones.h"
+	<stdio.h>
+
+1778736352 source:c:\users\saave\documents\devel\nodo_tetris\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+	"opciones.h"
+
+1778736352 c:\users\saave\documents\devel\nodo_tetris\pmenu.h
+
+1778903729 source:c:\users\saave\documents\devel\nodo_tetris\pmenu.c
+	"pMenu.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"GBT_v2026.1C.01/include/GBT/gbt_entrada.h"
+	"graficos.h"
+
+1778998491 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\dibujo.c
+	"dibujo.h"
+	"GBT/gbt_graficos.h"
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"graficos.h"
+	<string.h>
+
+1778998491 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\dibujo.h
+	<stdint.h>
+	"graficos.h"
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\graficos.h
+	<stdint.h>
+	<stdbool.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\graficos.c
+	"graficos.h"
+	<stdint.h>
+	<string.h>
+	<stdbool.h>
+	<stdio.h>
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\main.c
+	<stdio.h>
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"mEstados.h"
+	<stdbool.h>
+	"dibujo.h"
+	"opciones.h"
+	<time.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1778999246 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\mestados.h
+	<stdbool.h>
+	"dibujo.h"
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\opciones.h
+	"dibujo.h"
+	"mEstados.h"
+
+1778998558 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\mestados.c
+	"mEstados.h"
+	<stdlib.h>
+	<stdbool.h>
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"splash.h"
+	<stdio.h>
+	<string.h>
+	"pNombre.h"
+	"tetris.h"
+	"graficos.h"
+	"opciones.h"
+	"pMenu.h"
+	"Perder.h"
+	"Pausa.h"
+	<time.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\splash.h
+	"dibujo.h"
+	"mEstados.h"
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\pnombre.h
+
+1778998817 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\tetris.h
+	"tablero.h"
+	"piezas.h"
+	"tda_vector.h"
+	<time.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\tablero.h
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<GBT/gbt.h>
+	"piezas.h"
+	"dibujo.h"
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\piezas.h
+	<stdint.h>
+	<stdbool.h>
+	<GBT/gbt.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\tda_vector.h
+	<stdlib.h>
+	<stdbool.h>
+	<stdio.h>
+
+1778992060 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\pmenu.h
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\opciones.c
+	"opciones.h"
+	"GBT/gbt_entrada.h"
+	"stdio.h"
+	"GBT/gbt.h"
+	"GBT/gbt_graficos.h"
+	"dibujo.h"
+	<string.h>
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\piezas.c
+	"piezas.h"
+	"tablero.h"
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\pmenu.c
+	"pMenu.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"GBT_v2026.1C.01/include/GBT/gbt_entrada.h"
+	"graficos.h"
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\pnombre.c
+	"pNombre.h"
+	"dibujo.h"
+	"pNombre.h"
+	"graficos.h"
+	"GBT/gbt_entrada.h"
+	"mEstados.h"
+	<math.h>
+	<stdio.h>
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\splash.c
+	"splash.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"mEstados.h"
+	<stdio.h>
+	"graficos.h"
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<stdio.h>
+	"dibujo.h"
+
+1778998836 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\tetris.c
+	"tetris.h"
+	<stdlib.h>
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"graficos.h"
+	"piezas.h"
+	"tablero.h"
+	"mEstados.h"
+	"opciones.h"
+	<stdio.h>
+
+1778992060 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\tda_vector.c
+	"tda_vector.h"
+
+1778998828 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\perder.c
+	"Perder.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"graficos.h"
+	"tetris.h"
+
+1778997026 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\perder.h
+	"mEstados.h"
+
+1778998665 source:c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\pausa.c
+	"Pausa.h"
+	"GBT/gbt_entrada.h"
+	"dibujo.h"
+	"graficos.h"
+
+1778998491 c:\users\lucas\desktop\nodo_tetris_4\nodo_tetris\pausa.h
+	"mEstados.h"
+

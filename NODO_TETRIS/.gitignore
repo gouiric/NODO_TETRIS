@@ -1,0 +1,10 @@
+*.o
+Makefile
+ventana.exe
+.clangd
+/gbt.dll
+2Makefile
+partida.bin
+opciones.bin
+*.exe
+*.wav
