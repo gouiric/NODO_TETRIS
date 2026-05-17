@@ -19,7 +19,11 @@ void loopDibujoMenu(){
     sprintf(text, "Bienvenido %s", contexto->nombreActual);
     dibujar_texto(text, 10.5, 10.5, 2, 1);
     dibujar_texto(text, 10, 10, 2, 2);
-
+    /*
+    dibujar_texto("ABCDEFGHIJKLMNOPQRSTUVWXYZ",0, 20,1,0);
+    dibujar_texto("0123456789", 0, 26, 1, 0);
+    dibujar_texto("abcdefghijklmnopqrstuvwxyz", 0, 32, 1, 0);
+    */
     //Menu
     char tMenu[CANTIDAD_ELEMENTOS_MENU][20] = {"JUGAR","DELUXE" , "OPCIONES", "SALIR"};
     for(int i = 0; i < CANTIDAD_ELEMENTOS_MENU; i++)

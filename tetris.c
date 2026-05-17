@@ -66,11 +66,11 @@ void loop_dibujar_tetris()
 
     //Dibujar puntos
     int origen_cuadroX = pantalla->tab_offsetX + pantalla->tam_tabX + 10;
-    dibujar_rect( origen_cuadroX, pantalla->tab_offsetY, 60, 25, 0);
-    dibujar_texto("puntos", 69, 11, 1, 13);
+    dibujar_rect( origen_cuadroX, pantalla->tab_offsetY, 60, 25, 1);
+    dibujar_texto("puntos", 69, 11, 1, 0);
     char points[12];
     sprintf(points, "%d", tetris->puntos);
-    dibujar_texto(points, 69, 15, 1, 13);
+    dibujar_texto(points, 69, 15, 1, 0);
 
     if(tetris->en_pausa)
     {

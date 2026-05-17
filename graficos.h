@@ -73,6 +73,7 @@ typedef struct{
 //FUENTE SPLASH EN FORMATO SPRITE
 extern car16 C_letraT;
 extern car16 C_letraE;
+extern car16 C_letraT2;
 extern car16 C_letraR;
 extern car16 C_letraI;
 extern car16 C_letraS;

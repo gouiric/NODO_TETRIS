@@ -29,6 +29,7 @@ float obtener_velocidad_actual_ms();
 int obtener_ancho_actual();
 int obtener_alto_actual();
 int obtener_escala_actual();
+void aplicar_paleta();
 
 ///Por el momento es medio auxiliar
 void aplicar_cambios_graficos();
